@@ -14,6 +14,16 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# Kategori soruları
+CATEGORY_QUESTIONS = {
+    "motor": "Arabalarda en sık karşılaşılan motor sorunları nelerdir ve çözümleri nasıldır?",
+    "fren": "Arabalarda en sık karşılaşılan fren sistemi sorunları nelerdir ve çözümleri nasıldır?",
+    "elektrik": "Arabalarda en sık karşılaşılan elektrik ve akü sorunları nelerdir ve çözümleri nasıldır?",
+    "klima": "Arabalarda en sık karşılaşılan klima ve ısıtma sorunları nelerdir ve çözümleri nasıldır?",
+    "sanziman": "Arabalarda en sık karşılaşılan şanzıman ve vites sorunları nelerdir ve çözümleri nasıldır?",
+    "bakim": "Araba bakımı için en önemli ipuçları ve yapılması gerekenler nelerdir?"
+}
+
 # Özel CSS stilleri
 st.markdown("""
 <style>
@@ -174,46 +184,6 @@ st.markdown("""
         box-shadow: 0 10px 30px rgba(255, 71, 87, 0.6);
     }
     
-    /* Özellik kartları */
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        margin: 20px 0;
-    }
-    
-    .feature-card {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 16px;
-        padding: 20px;
-        text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        transition: all 0.3s ease;
-    }
-    
-    .feature-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255, 71, 87, 0.3);
-        box-shadow: 0 10px 30px rgba(255, 71, 87, 0.15);
-    }
-    
-    .feature-icon {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-    
-    .feature-title {
-        color: #fff;
-        font-weight: 600;
-        font-size: 1rem;
-        margin-bottom: 5px;
-    }
-    
-    .feature-desc {
-        color: #888;
-        font-size: 0.85rem;
-    }
-    
     /* Uyarı kutusu */
     .warning-box {
         background: linear-gradient(135deg, rgba(255, 165, 2, 0.1) 0%, rgba(255, 99, 72, 0.1) 100%);
@@ -252,6 +222,28 @@ st.markdown("""
     .stSpinner > div {
         border-color: #ff4757 !important;
     }
+    
+    /* Kategori butonları */
+    div[data-testid="column"] .stButton > button {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 20px 15px;
+        min-height: 120px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: none;
+    }
+    
+    div[data-testid="column"] .stButton > button:hover {
+        background: rgba(255, 71, 87, 0.15);
+        border-color: rgba(255, 71, 87, 0.4);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(255, 71, 87, 0.2);
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -263,6 +255,12 @@ def initialize_session_state():
     
     if 'chatbot' not in st.session_state:
         st.session_state.chatbot = CarExpertChatBot()
+    
+    if 'pending_question' not in st.session_state:
+        st.session_state.pending_question = None
+    
+    if 'waiting_for_response' not in st.session_state:
+        st.session_state.waiting_for_response = False
 
 
 def render_chat_message(role: str, content: str):
@@ -286,50 +284,58 @@ def render_chat_message(role: str, content: str):
         """, unsafe_allow_html=True)
 
 
+def handle_category_click(category: str):
+    """Kategori butonuna tıklandığında çalışır"""
+    question = CATEGORY_QUESTIONS.get(category, "")
+    if question:
+        st.session_state.pending_question = question
+
+
 def render_welcome_section():
     """Hoş geldin bölümünü render eder"""
     st.markdown("""
     <div class="welcome-card">
         <h3>👋 Hoş Geldiniz!</h3>
         <p style="color: #aaa;">Ben araba sorunları konusunda uzman bir yapay zeka asistanıyım. 
-        Aracınızla ilgili teknik sorunlarınızda size yardımcı olmak için buradayım.</p>
+        Aracınızla ilgili teknik sorunlarınızda size yardımcı olmak için buradayım. 
+        Aşağıdaki kategorilere tıklayarak sık karşılaşılan sorunları öğrenebilirsiniz.</p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("""
-    <div class="feature-grid">
-        <div class="feature-card">
-            <div class="feature-icon">🔧</div>
-            <div class="feature-title">Motor Sorunları</div>
-            <div class="feature-desc">Motor arızaları ve çözümleri</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🛞</div>
-            <div class="feature-title">Fren Sistemleri</div>
-            <div class="feature-desc">Fren ve süspansiyon</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <div class="feature-title">Elektrik & Akü</div>
-            <div class="feature-desc">Elektrik sistemleri</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🌡️</div>
-            <div class="feature-title">Klima & Isıtma</div>
-            <div class="feature-desc">İklimlendirme sorunları</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚙️</div>
-            <div class="feature-title">Şanzıman</div>
-            <div class="feature-desc">Vites ve aktarma</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <div class="feature-title">Bakım İpuçları</div>
-            <div class="feature-desc">Genel bakım tavsiyeleri</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # Kategori butonları - 3 sütun
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if st.button("🔧\n\n**Motor Sorunları**\n\nMotor arızaları ve çözümleri", key="btn_motor", use_container_width=True):
+            handle_category_click("motor")
+            st.rerun()
+    
+    with col2:
+        if st.button("🛞\n\n**Fren Sistemleri**\n\nFren ve süspansiyon", key="btn_fren", use_container_width=True):
+            handle_category_click("fren")
+            st.rerun()
+    
+    with col3:
+        if st.button("⚡\n\n**Elektrik & Akü**\n\nElektrik sistemleri", key="btn_elektrik", use_container_width=True):
+            handle_category_click("elektrik")
+            st.rerun()
+    
+    col4, col5, col6 = st.columns(3)
+    
+    with col4:
+        if st.button("🌡️\n\n**Klima & Isıtma**\n\nİklimlendirme sorunları", key="btn_klima", use_container_width=True):
+            handle_category_click("klima")
+            st.rerun()
+    
+    with col5:
+        if st.button("⚙️\n\n**Şanzıman**\n\nVites ve aktarma", key="btn_sanziman", use_container_width=True):
+            handle_category_click("sanziman")
+            st.rerun()
+    
+    with col6:
+        if st.button("🔍\n\n**Bakım İpuçları**\n\nGenel bakım tavsiyeleri", key="btn_bakim", use_container_width=True):
+            handle_category_click("bakim")
+            st.rerun()
     
     st.markdown("""
     <div class="warning-box">
@@ -346,19 +352,48 @@ def render_chat_area():
     st.markdown('<h1 class="main-header">🚗 Araba Uzmanı ChatBot</h1>', unsafe_allow_html=True)
     st.markdown('<p class="sub-header">Arabanızla ilgili her türlü teknik soruda yanınızdayım!</p>', unsafe_allow_html=True)
     
-    # Hoş geldin mesajı (sadece ilk açılışta)
-    if not st.session_state.messages:
+    # Bekleyen soru varsa işle (kategori butonlarından)
+    if st.session_state.pending_question:
+        question = st.session_state.pending_question
+        st.session_state.pending_question = None
+        
+        # Kullanıcı mesajını ekle
+        st.session_state.messages.append({
+            "role": "user",
+            "content": question
+        })
+        
+        # Yanıt bekle
+        st.session_state.waiting_for_response = True
+    
+    # Hoş geldin mesajı (sadece mesaj yoksa VE yanıt beklemiyorsa)
+    if not st.session_state.messages and not st.session_state.waiting_for_response:
         render_welcome_section()
-    
-    # Chat geçmişi
-    chat_container = st.container()
-    
-    with chat_container:
-        for message in st.session_state.messages:
-            render_chat_message(message["role"], message["content"])
-    
-    # Sohbeti temizle butonu (mesaj varsa göster)
-    if st.session_state.messages:
+    else:
+        # Chat geçmişi
+        chat_container = st.container()
+        
+        with chat_container:
+            for message in st.session_state.messages:
+                render_chat_message(message["role"], message["content"])
+        
+        # Bekleyen yanıt varsa al
+        if st.session_state.waiting_for_response:
+            st.session_state.waiting_for_response = False
+            last_user_message = st.session_state.messages[-1]["content"]
+            
+            # Yanıt al
+            with st.spinner("🔍 Düşünüyorum..."):
+                response = st.session_state.chatbot.get_response(last_user_message)
+            
+            # Bot yanıtını ekle
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": response
+            })
+            st.rerun()
+        
+        # Sohbeti temizle butonu
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
             if st.button("🗑️ Sohbeti Temizle", use_container_width=True):
@@ -376,17 +411,8 @@ def render_chat_area():
             "content": user_input
         })
         
-        # Yanıt al
-        with st.spinner("🔍 Düşünüyorum..."):
-            response = st.session_state.chatbot.get_response(user_input)
-        
-        # Bot yanıtını ekle
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": response
-        })
-        
-        # Sayfayı yenile
+        # Yanıt bekle
+        st.session_state.waiting_for_response = True
         st.rerun()
     
     # Footer

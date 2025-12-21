@@ -1,14 +1,15 @@
 """
-Gemini API Client Module
-Car expert ChatBot with Gemini API integration.
+LangChain + Gemini API Client Module
+Car expert ChatBot with LangChain integration.
 """
 
-import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from typing import List, Dict
 
 
 class CarExpertChatBot:
-    """Car problems expert ChatBot"""
+    """Car problems expert ChatBot with LangChain"""
     
     # Blocked topics - will NOT answer these
     BLOCKED_KEYWORDS = [
@@ -81,21 +82,28 @@ If user asks about blocked topics (health, food, code, politics, etc.), respond:
     API_KEY = "AIzaSyAUFG5MVlf2SOwj4_HYTD6EZ6aCD4Fx0NI"
     
     def __init__(self):
-        self.api_key = self.API_KEY
-        self.model = None
-        self.chat = None
         self.chat_history: List[Dict[str, str]] = []
-        self.initialize_model()
+        self.messages: List = []
+        self.initialize_llm()
     
-    def initialize_model(self):
-        """Initialize Gemini model"""
+    def initialize_llm(self):
+        """Initialize LangChain with Gemini"""
         try:
-            genai.configure(api_key=self.api_key)
-            self.model = genai.GenerativeModel('gemini-2.5-flash')
-            self.chat = self.model.start_chat(history=[])
+            # LangChain Gemini LLM
+            self.llm = ChatGoogleGenerativeAI(
+                model="gemini-2.5-flash",
+                google_api_key=self.API_KEY,
+                temperature=0.7
+            )
+            
+            # Add system message
+            self.messages = [
+                SystemMessage(content=self.SYSTEM_PROMPT)
+            ]
+            
             return True
         except Exception as e:
-            print(f"Model initialization error: {e}")
+            print(f"LLM initialization error: {e}")
             return False
     
     def is_blocked_topic(self, message: str) -> bool:
@@ -123,12 +131,7 @@ If user asks about blocked topics (health, food, code, politics, etc.), respond:
         return False
     
     def get_response(self, user_message: str) -> str:
-        """Generate response to user message"""
-        
-        # Model check
-        if not self.model:
-            if not self.initialize_model():
-                return "⚠️ Model başlatılamadı. Lütfen bağlantınızı kontrol edin."
+        """Generate response to user message using LangChain"""
         
         # Check if blocked topic (but not a greeting)
         if self.is_blocked_topic(user_message) and not self.is_greeting(user_message):
@@ -144,23 +147,26 @@ Bu konuda size yardımcı olamıyorum. Arabanızla ilgili bir sorunuz varsa memn
 - Akü ne sıklıkla değiştirilmeli?"""
         
         try:
-            # Create prompt
-            full_prompt = f"{self.SYSTEM_PROMPT}\n\nUser Message: {user_message}"
+            # Add user message to history
+            self.messages.append(HumanMessage(content=user_message))
             
-            # Send to Gemini
-            response = self.chat.send_message(full_prompt)
+            # Get response from LangChain
+            response = self.llm.invoke(self.messages)
             
-            # Add to history
+            # Add AI response to history
+            self.messages.append(AIMessage(content=response.content))
+            
+            # Add to simple history
             self.chat_history.append({
                 "role": "user",
                 "content": user_message
             })
             self.chat_history.append({
                 "role": "assistant", 
-                "content": response.text
+                "content": response.content
             })
             
-            return response.text
+            return response.content
             
         except Exception as e:
             return f"⚠️ Yanıt üretilirken bir hata oluştu: {str(e)}"
@@ -168,8 +174,9 @@ Bu konuda size yardımcı olamıyorum. Arabanızla ilgili bir sorunuz varsa memn
     def clear_history(self):
         """Clear chat history"""
         self.chat_history = []
-        if self.model:
-            self.chat = self.model.start_chat(history=[])
+        self.messages = [
+            SystemMessage(content=self.SYSTEM_PROMPT)
+        ]
     
     def get_chat_history(self) -> List[Dict[str, str]]:
         """Return chat history"""
