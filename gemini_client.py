@@ -3,9 +3,14 @@ LangChain + Gemini API Client Module
 Car expert ChatBot with LangChain integration.
 """
 
+import os
+from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from typing import List, Dict
+
+# Load environment variables
+load_dotenv()
 
 
 class CarExpertChatBot:
@@ -78,10 +83,17 @@ If user asks about blocked topics (health, food, code, politics, etc.), respond:
 "Üzgünüm, ben sadece araba ve araç sorunları konusunda uzman bir asistanım. Bu konuda yardımcı olamıyorum. Arabanızla ilgili bir sorunuz varsa memnuniyetle yardımcı olurum! 🚗"
 """
 
-    # Fixed API Key
-    API_KEY = "AIzaSyAUFG5MVlf2SOwj4_HYTD6EZ6aCD4Fx0NI"
-    
     def __init__(self):
+        # Get API key from environment variable
+        self.api_key = os.getenv("GEMINI_API_KEY")
+        
+        if not self.api_key:
+            raise ValueError(
+                "GEMINI_API_KEY bulunamadı! Lütfen .env dosyası oluşturup "
+                "GEMINI_API_KEY=your_api_key_here şeklinde ekleyin. "
+                ".env.example dosyasını örnek olarak kullanabilirsiniz."
+            )
+        
         self.chat_history: List[Dict[str, str]] = []
         self.messages: List = []
         self.initialize_llm()
@@ -92,7 +104,7 @@ If user asks about blocked topics (health, food, code, politics, etc.), respond:
             # LangChain Gemini LLM
             self.llm = ChatGoogleGenerativeAI(
                 model="gemini-2.5-flash",
-                google_api_key=self.API_KEY,
+                google_api_key=self.api_key,
                 temperature=0.7
             )
             
