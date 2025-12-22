@@ -502,7 +502,7 @@ def main():
     # Footer
     st.markdown("""
     <div class="footer">
-        🚗 Araba Uzmanı ChatBot v1.0 | Sadece araba sorunları hakkında uzman
+        🚗 Araba Uzmanı ChatBot 
     </div>
     """, unsafe_allow_html=True)
 
