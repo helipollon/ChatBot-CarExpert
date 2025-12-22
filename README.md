@@ -31,7 +31,7 @@ Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit il
 ### 1. Projeyi Klonlayın veya İndirin
 
 ```bash
-cd "/Users/ahmetyesil/Desktop/ChatBot Odev"
+cd "/Users/..."
 ```
 
 ### 2. Bağımlılıkları Yükleyin
