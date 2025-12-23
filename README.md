@@ -30,8 +30,9 @@ Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit il
 
 ### 1. Projeyi Klonlayın veya İndirin
 
+Proje klasörüne gidin:
 ```bash
-cd "/Users/..."
+cd "proje-klasörü-yolu"
 ```
 
 ### 2. Bağımlılıkları Yükleyin
@@ -95,8 +96,7 @@ ChatBot Odev/
 ├── app.py                 # Ana Streamlit uygulaması
 ├── gemini_client.py      # LangChain + Gemini API entegrasyonu
 ├── requirements.txt       # Python bağımlılıkları
-├── .env                  # API anahtarı (oluşturulmalı)
-├── .env.example          # API anahtarı örneği
+├── .env                  # API anahtarı (oluşturulmalı, git'e commit edilmez)
 ├── .gitignore            # Git ignore dosyası
 └── README.md             # Bu dosya
 ```
@@ -123,6 +123,7 @@ ChatBot Odev/
 - **Selamlaşma Desteği**: "Merhaba", "Nasılsın" gibi selamlamalara yanıt verir
 - **Yasaklı Konular**: Sağlık, yemek, programlama, siyaset gibi konularda yanıt vermez
 - **Sohbet Geçmişi**: Tüm sohbetler otomatik kaydedilir ve geri yüklenebilir
+- **Gerçek Zamanlı Yanıt**: Gemini API ile anlık ve akıllı yanıtlar
 
 ## ⚠️ Önemli Notlar
 
@@ -177,10 +178,13 @@ Araba sorunları konusunda uzman AI asistanı - Streamlit + LangChain + Gemini A
 ## 🔄 Güncellemeler
 
 - **v1.0**: İlk sürüm
-  - Temel ChatBot özellikleri
-  - Kategori bazlı sorular
-  - Sohbet geçmişi yönetimi
-  - Modern UI tasarımı
+  - ✅ Temel ChatBot özellikleri
+  - ✅ Kategori bazlı sorular (6 kategori)
+  - ✅ Sohbet geçmişi yönetimi (sidebar)
+  - ✅ Modern UI tasarımı (koyu tema)
+  - ✅ LangChain entegrasyonu
+  - ✅ API anahtarı güvenliği (.env)
+  - ✅ Akıllı konu filtreleme
 
 ---
 
