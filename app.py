@@ -4,7 +4,9 @@ Streamlit ile oluşturulmuş araba sorunları uzmanı ChatBot arayüzü.
 """
 
 import streamlit as st
+import os
 from gemini_client import CarExpertChatBot
+from document_processor import DocumentProcessor, SimpleDocumentStore
 from datetime import datetime
 
 # Sayfa yapılandırması
@@ -171,10 +173,23 @@ st.markdown("""
         margin-bottom: 8px;
     }
     
+    .stChatInput {
+        position: relative !important;
+    }
+    
     .stChatInput > div {
         background-color: rgba(255, 255, 255, 0.05) !important;
         border: 2px solid rgba(255, 71, 87, 0.3) !important;
         border-radius: 20px !important;
+    }
+    
+    .stChatInput input {
+        color: white !important;
+        font-size: 1rem !important;
+    }
+    
+    .stChatInput input::placeholder {
+        color: #888 !important;
     }
     
     .stButton > button {
@@ -242,7 +257,11 @@ def initialize_session_state():
         st.session_state.messages = []
     
     if 'chatbot' not in st.session_state:
-        st.session_state.chatbot = CarExpertChatBot()
+        try:
+            st.session_state.chatbot = CarExpertChatBot()
+        except Exception as e:
+            st.error(f"Gemini başlatılamadı: {e}")
+            st.session_state.chatbot = None
     
     if 'show_welcome' not in st.session_state:
         st.session_state.show_welcome = True
@@ -253,6 +272,18 @@ def initialize_session_state():
     
     if 'current_chat_id' not in st.session_state:
         st.session_state.current_chat_id = None
+    
+    # Doküman işleme için
+    if 'doc_processor' not in st.session_state:
+        st.session_state.doc_processor = DocumentProcessor("documents")
+    
+    if 'doc_store' not in st.session_state:
+        st.session_state.doc_store = SimpleDocumentStore()
+        # İlk yüklemede dokümanları yükle
+        chunks = st.session_state.doc_processor.get_document_chunks()
+        st.session_state.doc_store.add_documents(chunks)
+
+
 
 
 def get_chat_title(messages):
@@ -359,6 +390,45 @@ def render_sidebar():
         
         st.markdown("---")
         
+        # Doküman Yönetimi
+        st.markdown('<div class="sidebar-title">📄 Dokümanlar</div>', unsafe_allow_html=True)
+        
+        # Doküman yükleme
+        uploaded_files = st.file_uploader(
+            "Doküman Yükle",
+            type=['pdf', 'docx', 'xlsx'],
+            accept_multiple_files=True,
+            help="PDF, DOCX veya XLSX dosyaları yükleyin",
+            key="doc_uploader"
+        )
+        
+        if uploaded_files:
+            for uploaded_file in uploaded_files:
+                file_path = os.path.join("documents", uploaded_file.name)
+                with open(file_path, "wb") as f:
+                    f.write(uploaded_file.getbuffer())
+            st.success(f"✅ {len(uploaded_files)} dosya yüklendi!")
+            # Dokümanları yeniden yükle
+            chunks = st.session_state.doc_processor.get_document_chunks()
+            st.session_state.doc_store.clear()
+            st.session_state.doc_store.add_documents(chunks)
+            st.rerun()
+        
+        # Dokümanları yenile butonu
+        if st.button("🔄 Dokümanları Yenile", key="reload_docs", use_container_width=True):
+            chunks = st.session_state.doc_processor.get_document_chunks()
+            st.session_state.doc_store.clear()
+            st.session_state.doc_store.add_documents(chunks)
+            st.success(f"✅ {len(chunks)} parça yüklendi!")
+            st.rerun()
+        
+        # Doküman istatistikleri
+        doc_count = len(st.session_state.doc_store.documents)
+        if doc_count > 0:
+            st.caption(f"📊 {doc_count} doküman parçası yüklü")
+        
+        st.markdown("---")
+        
         # Tüm geçmişi temizle
         if st.session_state.chat_history:
             if st.button("🗑️ Tüm Geçmişi Temizle", key="clear_all", use_container_width=True):
@@ -387,16 +457,22 @@ def render_chat_message(role: str, content: str):
         """, unsafe_allow_html=True)
 
 
-def send_message(message: str):
+def send_message(message: str, doc_context: str = ""):
     """Mesaj gönderir"""
     st.session_state.show_welcome = False
     
     if st.session_state.current_chat_id is None:
         st.session_state.current_chat_id = datetime.now().strftime("%Y%m%d%H%M%S")
     
+    # Doküman bağlamı varsa mesaja ekle
+    if doc_context:
+        message_with_context = f"{message}\n\n📚 Dokümanlardan Bilgiler:\n{doc_context}"
+    else:
+        message_with_context = message
+    
     st.session_state.messages.append({
         "role": "user",
-        "content": message
+        "content": message_with_context
     })
 
 
@@ -426,34 +502,53 @@ def main():
         
         with col1:
             if st.button("🔧\n\nMotor Sorunları", key="btn_motor", use_container_width=True):
-                send_message(CATEGORY_QUESTIONS["motor"])
+                category = "motor"
+                question = CATEGORY_QUESTIONS[category]
+                # Dokümanlardan bilgi çek
+                doc_context = st.session_state.doc_store.get_category_context(category)
+                send_message(question, doc_context)
                 st.rerun()
         
         with col2:
             if st.button("🛞\n\nFren Sistemleri", key="btn_fren", use_container_width=True):
-                send_message(CATEGORY_QUESTIONS["fren"])
+                category = "fren"
+                question = CATEGORY_QUESTIONS[category]
+                doc_context = st.session_state.doc_store.get_category_context(category)
+                send_message(question, doc_context)
                 st.rerun()
         
         with col3:
             if st.button("⚡\n\nElektrik & Akü", key="btn_elektrik", use_container_width=True):
-                send_message(CATEGORY_QUESTIONS["elektrik"])
+                category = "elektrik"
+                question = CATEGORY_QUESTIONS[category]
+                doc_context = st.session_state.doc_store.get_category_context(category)
+                send_message(question, doc_context)
                 st.rerun()
         
         col4, col5, col6 = st.columns(3)
         
         with col4:
             if st.button("🌡️\n\nKlima & Isıtma", key="btn_klima", use_container_width=True):
-                send_message(CATEGORY_QUESTIONS["klima"])
+                category = "klima"
+                question = CATEGORY_QUESTIONS[category]
+                doc_context = st.session_state.doc_store.get_category_context(category)
+                send_message(question, doc_context)
                 st.rerun()
         
         with col5:
             if st.button("⚙️\n\nŞanzıman", key="btn_sanziman", use_container_width=True):
-                send_message(CATEGORY_QUESTIONS["sanziman"])
+                category = "sanziman"
+                question = CATEGORY_QUESTIONS[category]
+                doc_context = st.session_state.doc_store.get_category_context(category)
+                send_message(question, doc_context)
                 st.rerun()
         
         with col6:
             if st.button("🔍\n\nBakım İpuçları", key="btn_bakim", use_container_width=True):
-                send_message(CATEGORY_QUESTIONS["bakim"])
+                category = "bakim"
+                question = CATEGORY_QUESTIONS[category]
+                doc_context = st.session_state.doc_store.get_category_context(category)
+                send_message(question, doc_context)
                 st.rerun()
         
         st.markdown("""
@@ -470,8 +565,15 @@ def main():
         
         # Son mesaj user ise yanıt al
         if st.session_state.messages[-1]["role"] == "user":
+            user_msg = st.session_state.messages[-1]["content"]
+            
+            # Chatbot instance'ını kontrol et
+            if not st.session_state.chatbot:
+                st.error("❌ Gemini modeli başlatılamadı. Lütfen API anahtarınızı kontrol edin.")
+                st.stop()
+            
             with st.spinner("🔍 Düşünüyorum..."):
-                response = st.session_state.chatbot.get_response(st.session_state.messages[-1]["content"])
+                response = st.session_state.chatbot.get_response(user_msg)
             
             st.session_state.messages.append({
                 "role": "assistant",
@@ -488,7 +590,8 @@ def main():
             if st.button("🗑️ Sohbeti Temizle", use_container_width=True):
                 st.session_state.messages = []
                 st.session_state.show_welcome = True
-                st.session_state.chatbot.clear_history()
+                if st.session_state.chatbot:
+                    st.session_state.chatbot.clear_history()
                 st.session_state.current_chat_id = None
                 st.rerun()
     
@@ -496,8 +599,14 @@ def main():
     user_input = st.chat_input("Arabanızla ilgili sorunuzu yazın... 🚗")
     
     if user_input:
-        send_message(user_input)
-        st.rerun()
+        # Chatbot instance'ını kontrol et
+        if not st.session_state.chatbot:
+            st.error("❌ Gemini modeli başlatılamadı. Lütfen API anahtarınızı kontrol edin.")
+        else:
+            # Dokümanlardan ilgili bilgiyi çek
+            doc_context = st.session_state.doc_store.get_context(user_input)
+            send_message(user_input, doc_context)
+            st.rerun()
     
     # Footer
     st.markdown("""

@@ -4,3 +4,6 @@ langchain-core
 langchain-google-genai
 google-generativeai
 python-dotenv
+PyPDF2
+python-docx
+openpyxl
