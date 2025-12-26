@@ -75,8 +75,10 @@ Tarayıcınızda otomatik olarak `http://localhost:8501` adresinde açılacaktı
 3. Veya doğrudan chat input alanına sorunuzu yazabilirsiniz
 
 ## 📸 Ekran Görüntüleri
-
 ### 1. Ana Sayfa ve Kategori Butonları
+![Ekran görüntüsü_26-12-2025_155941_localhost](https://github.com/user-attachments/assets/e359760b-e81f-4d68-b779-6da93ee363ae)
+
+
 
 Ana sayfa açıldığında kullanıcıları karşılayan hoş geldin mesajı ve 6 farklı kategori butonu görüntülenir:
 - **Hoş Geldiniz Kartı**: Kullanıcıya chatbot'un amacını açıklayan bilgilendirici mesaj
@@ -91,6 +93,8 @@ Ana sayfa açıldığında kullanıcıları karşılayan hoş geldin mesajı ve 
 - **Chat Input**: Alt kısımda yer alan mesaj gönderme alanı
 
 ### 2. Sidebar - Sohbet Geçmişi ve Doküman Yönetimi
+![Ekran görüntüsü_26-12-2025_16614_localhost](https://github.com/user-attachments/assets/c625f79a-a4af-4733-9d42-1441428358d4)
+
 
 Sol tarafta açılır kapanır sidebar menüsü şu özellikleri içerir:
 
@@ -105,6 +109,8 @@ Sol tarafta açılır kapanır sidebar menüsü şu özellikleri içerir:
 - **Tüm Geçmişi Temizle Butonu**: Tüm sohbet geçmişini silmek için
 
 ### 3. Sohbet Örneği - Kullanıcı Sorusu ve Yanıt
+
+![Ekran görüntüsü_26-12-2025_16433_localhost](https://github.com/user-attachments/assets/2de0219d-da0a-4c6c-bd07-a9e620f34761)
 
 Chatbot'un çalışma örneği:
 
@@ -127,6 +133,7 @@ Chatbot'un çalışma örneği:
 - **Kategori Butonları**: Sohbet sırasında hala erişilebilir (kullanıcı mesajı gönderilene kadar)
 
 ### 4. Arayüz Özellikleri
+![Ekran görüntüsü_26-12-2025_16128_localhost](https://github.com/user-attachments/assets/5365339a-b39b-4d59-bb13-febfdd34a60e)
 
 **Tasarım:**
 - **Koyu Tema**: Mor-mavi gradient arka plan ile modern görünüm
