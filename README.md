@@ -74,6 +74,70 @@ Tarayıcınızda otomatik olarak `http://localhost:8501` adresinde açılacaktı
 2. İstediğiniz kategoriye tıklayarak o konuyla ilgili sık sorulan soruları görebilirsiniz
 3. Veya doğrudan chat input alanına sorunuzu yazabilirsiniz
 
+## 📸 Ekran Görüntüleri
+
+### 1. Ana Sayfa ve Kategori Butonları
+
+Ana sayfa açıldığında kullanıcıları karşılayan hoş geldin mesajı ve 6 farklı kategori butonu görüntülenir:
+- **Hoş Geldiniz Kartı**: Kullanıcıya chatbot'un amacını açıklayan bilgilendirici mesaj
+- **Kategori Butonları**: 
+  - 🔧 Motor Sorunları
+  - 🛞 Fren Sistemleri
+  - ⚡ Elektrik & Akü
+  - 🌡️ Klima & Isıtma
+  - ⚙️ Şanzıman
+  - 🔍 Bakım İpuçları
+- **Uyarı Notu**: Chatbot'un sadece araba sorunları hakkında uzman olduğunu belirten sarı uyarı kutusu
+- **Chat Input**: Alt kısımda yer alan mesaj gönderme alanı
+
+### 2. Sidebar - Sohbet Geçmişi ve Doküman Yönetimi
+
+Sol tarafta açılır kapanır sidebar menüsü şu özellikleri içerir:
+
+**Sohbet Geçmişi Bölümü:**
+- ➕ **Yeni Sohbet Butonu**: Yeni bir sohbet başlatmak için
+- **Sohbet Listesi**: Tarih ve saat bilgisiyle birlikte önceki sohbetler
+- 🗑️ **Silme Butonu**: Her sohbetin yanında yer alan silme ikonu
+
+**Dokümanlar Bölümü:**
+- **Doküman Yükleme Alanı**: Drag & drop veya dosya seçme ile PDF, DOCX, XLSX dosyaları yüklenebilir
+- **Dokümanları Yenile Butonu**: Yeni eklenen dosyaları yüklemek için
+- **Tüm Geçmişi Temizle Butonu**: Tüm sohbet geçmişini silmek için
+
+### 3. Sohbet Örneği - Kullanıcı Sorusu ve Yanıt
+
+Chatbot'un çalışma örneği:
+
+**Kullanıcı Sorusu:**
+- Sağ tarafta mor-mavi renkli chat balonu içinde kullanıcının sorusu görüntülenir
+- Örnek: "Arabalarda en sık karşılaşılan şanzıman ve vites sorunları nelerdir ve çözümleri nasıldır?"
+
+**Chatbot Yanıtı:**
+- Sol tarafta gri chat balonu içinde detaylı ve yapılandırılmış yanıt
+- **Numaralı Liste**: Her sorun için:
+  - Belirti (Symptom)
+  - Olası Nedenler (Possible Causes)
+  - Çözüm (Solution)
+- **Genel Öneriler**: Düzenli bakım, erken teşhis ve profesyonel yardım önerileri
+- **Kapanış Mesajı**: Yardımcı ve samimi bir kapanış
+
+**Ek Özellikler:**
+- **Düşünüyorum Göstergesi**: Yanıt üretilirken animasyonlu "Düşünüyorum..." göstergesi
+- **Sohbeti Temizle Butonu**: Sohbeti sıfırlamak için kırmızı buton
+- **Kategori Butonları**: Sohbet sırasında hala erişilebilir (kullanıcı mesajı gönderilene kadar)
+
+### 4. Arayüz Özellikleri
+
+**Tasarım:**
+- **Koyu Tema**: Mor-mavi gradient arka plan ile modern görünüm
+- **Renk Paleti**: Kırmızı-turuncu gradient butonlar, beyaz metin, sarı uyarı kutuları
+- **Responsive Layout**: Farklı ekran boyutlarına uyumlu tasarım
+
+**Kullanıcı Deneyimi:**
+- **Akıcı Animasyonlar**: Mesaj gönderilirken ve yanıt alınırken yumuşak geçişler
+- **Görsel Geri Bildirim**: Her işlem için görsel geri bildirim (butonlar, animasyonlar)
+- **Temiz Arayüz**: Gereksiz öğeler olmadan odaklanmış tasarım
+
 ### Sohbet Geçmişi
 
 - **Sol sidebar'ı açın**: Sayfanın sol üst köşesindeki `>` ikonuna tıklayın
