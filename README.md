@@ -152,6 +152,13 @@ Chatbot'un çalışma örneği:
 - **Eski sohbetleri görüntüleyin**: Listeden istediğiniz sohbeti seçin
 - **Sohbet silme**: Her sohbetin yanındaki 🗑️ butonuna tıklayın
 
+### Örnek Kullanım Videosu
+
+
+https://github.com/user-attachments/assets/1e8ebac7-f9b7-49be-b9e3-1c2aac5c50cb
+
+
+
 ### Örnek Sorular
 
 - "Arabamın motoru çalışmıyor, ne yapmalıyım?"
