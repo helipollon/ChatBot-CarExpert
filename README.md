@@ -25,6 +25,23 @@ Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit il
 - **Otomatik kategori tespiti**: Her kullanıcı sorusu için intent ve güven skoru hesaplanır
 - **Değerlendirme metrikleri**: Precision, Recall, F1 Score
 
+### Örnen Kullanım ve Arayüz
+![Ekran görüntüsü_31-12-2025_123358_localhost](https://github.com/user-attachments/assets/0a80647d-327b-455c-bc36-12b793e4d9d6)
+
+![Ekran görüntüsü_31-12-2025_123420_localhost](https://github.com/user-attachments/assets/5c649bf1-0cee-4ac9-8938-e6fdf429d98f)
+
+![Ekran görüntüsü_31-12-2025_123737_localhost](https://github.com/user-attachments/assets/516d649a-045d-4162-a819-334463b4435d)
+
+![Ekran görüntüsü_31-12-2025_124053_localhost](https://github.com/user-attachments/assets/a4f6b9d6-2d7f-4ef3-be35-ff0cfe7e155e)
+
+
+
+https://github.com/user-attachments/assets/581137e2-8d09-45b3-91d5-1f0aec738cc3
+
+
+
+
+ 
 ### 📊 Model Performansı
 
 | Metrik | Değer |
