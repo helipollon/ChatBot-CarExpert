@@ -498,7 +498,7 @@ def render_chat_message(role: str, content: str, intent: str = None, intent_scor
         intent_badge = ""
         if intent and intent_score and st.session_state.get('chatbot'):
             intent_desc = st.session_state.chatbot.get_intent_description(intent)
-            intent_badge = f'<div style="font-size: 0.75rem; color: #888; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);">📌 {intent_desc} ({intent_score:.0%})</div>'
+            intent_badge = f'<div style="font-size: 0.75rem; color: #888; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);">📌 {intent_desc} ({intent_score:.0%}) <span style="color: #666; font-size: 0.7rem;">• Bu yüzde, sorunuzun bu kategoriye ait olma güvenini gösterir</span></div>'
         
         st.markdown(f"""
         <div class="bot-message">
