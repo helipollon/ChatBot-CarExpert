@@ -36,7 +36,11 @@ Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit il
 
 
 
-https://github.com/user-attachments/assets/581137e2-8d09-45b3-91d5-1f0aec738cc3
+
+https://github.com/user-attachments/assets/774f10ec-d7cd-49e4-b26d-04947cb354f3
+
+
+
 
 
 
