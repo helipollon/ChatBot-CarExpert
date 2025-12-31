@@ -38,7 +38,11 @@ Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit il
 - API anahtarları `.env` dosyasında güvenli şekilde saklanır
 - Hassas bilgiler git'e commit edilmez
 
-## 📋 Gereksinimler
+## � Proje Akış Diyagramı
+
+![ChatBot Akış Diyagramı](flow_diagram.png)
+
+## �📋 Gereksinimler
 
 - Python 3.8+
 - Google Gemini API anahtarı
