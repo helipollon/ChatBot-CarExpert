@@ -1,0 +1,1012 @@
+# Intent Classification Training Data
+# Format: intent|örnek_cümle
+# Kategoriler: motor, fren, elektrik, klima, sanziman, lastik, suspansiyon, egzoz, bakim, selamlama, kapsam_disi
+
+# ==================== MOTOR SORUNLARI ====================
+motor|Arabamın motoru çalışmıyor
+motor|Motor marş almıyor ne yapmalıyım
+motor|Araç hararet yapıyor
+motor|Motor ısınıyor ama fan çalışmıyor
+motor|Motordan ses geliyor
+motor|Motor titriyor ve sarsılıyor
+motor|Araç rölantide titriyor
+motor|Motor check lambası yandı
+motor|Araba hızlanamıyor güç kaybı var
+motor|Motor yağı çok çabuk bitiyor
+motor|Yağ ikaz lambası yanıyor
+motor|Motor çalışırken tıkırtı sesi geliyor
+motor|Araç stop ediyor
+motor|Motor hararet yapıp kapandı
+motor|Subap ayarı ne zaman yapılmalı
+motor|Triger kayışı ne zaman değişmeli
+motor|Motor blok çatlağı belirtileri nelerdir
+motor|Turbo arızası nasıl anlaşılır
+motor|Enjektör tıkanması belirtileri
+motor|Araç ilk çalışta zorlanıyor
+motor|Motor soğukken ses yapıyor
+motor|Silindir kapak contası nasıl anlaşılır
+motor|Yağ pompası arızası belirtileri
+motor|Krank mili arızası nasıl anlaşılır
+motor|Motor su kaybediyor ama kaçak yok
+motor|Araç beyaz duman çıkarıyor
+motor|Egzozdan mavi duman geliyor
+motor|Motor siyah duman çıkarıyor
+motor|Yakıt pompası arızası belirtileri
+motor|Hava filtresi ne zaman değişmeli
+motor|Motor yağı ne zaman değişmeli
+motor|Antifriz ne zaman değişmeli
+motor|Radyatör tıkalı olabilir mi
+motor|Termostat arızası belirtileri
+motor|Motor performansı düştü ne yapmalıyım
+motor|Araç ivmelenmiyor
+motor|Motor çalışmıyor akü dolu
+motor|Marş motoru çalışmıyor
+motor|Motor devir saati oynamıyor
+motor|Gaz verince motor kesiliyor
+motor|Rölanti devri düşük
+motor|Rölanti devri yüksek
+motor|Motor sürekli aşırı ısınıyor
+motor|Soğutma sistemi arızası
+motor|Su pompası arızası belirtileri
+motor|V kayışı ses yapıyor
+motor|Alternatör kayışı gevşek
+motor|Motor bloğundan su sızıyor
+motor|Karter contası yağ kaçırıyor
+motor|Supap contası yağ kaçırıyor
+motor|Motor çalınca titriyor sonra duruyor
+motor|Araç uzun süre çalıştırılmadı ne yapmalıyım
+motor|Motor donmuş olabilir mi
+motor|Kışın motor nasıl korunur
+motor|Yazın motor nasıl soğutulur
+motor|Dizel motor mu benzinli mi daha iyi
+motor|LPG motora zarar verir mi
+motor|Araç LPG ye geçirilmeli mi
+motor|Motor sesleri ne anlama gelir
+motor|Vuruntu sesi motordan geliyor
+motor|Motor homurdanıyor
+motor|Araç çekerken motor zorlanıyor
+motor|Yokuş çıkarken motor zorlanıyor
+motor|Motor devri düşmüyor
+motor|Motor devri yükselmiyor
+motor|Araç kendiliğinden hızlanıyor
+motor|Gaz pedalı tepki vermiyor
+motor|Elektronik gaz kelebeği arızası
+motor|Gaz kelebeği kirli olabilir mi
+motor|Motor içi karbon temizliği
+motor|Enjektör temizliği ne zaman yapılmalı
+motor|Buji ne zaman değişmeli
+motor|Bobin arızası belirtileri
+motor|Ateşleme sistemi arızası
+motor|Motor ECU arızası
+motor|Motor beyin arızası belirtileri
+motor|Araç limp mode a girdi
+motor|Motor koruma moduna geçti
+motor|Motor yağ basıncı düşük
+motor|Motor içi paslanma
+motor|Motor revizyonu ne zaman gerekli
+motor|Motor değişimi mi revizyon mu
+motor|Motor garanti kapsamında mı
+motor|Motordan tık tık sesi geliyor
+motor|Hidrolik subap iticileri arızalı
+motor|Eksantrik mili arızası
+motor|Piston segmanları aşınmış
+motor|Motor kompresyon testi nasıl yapılır
+motor|Motor yağ tüketimi normal mi
+motor|Motor performans artırma yöntemleri
+motor|Chip tuning motora zarar verir mi
+motor|Motor yazılım güncellemesi gerekli mi
+motor|Araç recalled oldu ne yapmalıyım
+motor|Motor garantisi ne kadar sürer
+motor|Motor arızası garantide mi
+
+# ==================== FREN SİSTEMİ ====================
+fren|Fren pedalı sertleşti
+fren|Fren pedalı yumuşadı
+fren|Frenler tutmuyor
+fren|Fren yaparken ses geliyor
+fren|Fren diski aşınmış mı
+fren|Fren balatası ne zaman değişmeli
+fren|Fren hidroliği ne zaman değişmeli
+fren|Fren sistemi hava yapmış
+fren|El freni tutmuyor
+fren|El freni çözülmüyor
+fren|Fren lambası yanıyor
+fren|ABS lambası yanıyor
+fren|Fren pedalı titriyor
+fren|Fren yaparken araç sağa çekiyor
+fren|Fren yaparken araç sola çekiyor
+fren|Fren kaliperi sıkışmış
+fren|Fren diski eğrilmiş
+fren|Fren balatası cam gibi olmuş
+fren|Fren hidrolik borusu patlamış
+fren|Fren merkezi arızalı
+fren|Fren takviyesi çalışmıyor
+fren|Fren vakum pompası arızalı
+fren|Fren sistemi nasıl çalışır
+fren|Fren bakımı nasıl yapılır
+fren|Fren sistemi maliyeti ne kadar
+fren|Fren diski değişimi ücreti
+fren|Fren balatası değişim ücreti
+fren|Arka frenler ön frenlerden farklı mı
+fren|Disk fren mi kampanalı fren mi
+fren|Fren sistemi upgrade edilebilir mi
+fren|Spor fren balatası kullanmalı mıyım
+fren|Fren soğutması nasıl artırılır
+fren|Fren sıvısı rengi ne olmalı
+fren|Fren hidroliği seviyesi düşük
+fren|Fren pedalı dibe gidiyor
+fren|Fren boşluğu ayarı nasıl yapılır
+fren|Fren kampanası aşınmış
+fren|Fren balata kalınlığı kaç mm olmalı
+fren|Fren diski minimum kalınlık
+fren|Fren sistemi arızası tehlikeli mi
+fren|Acil fren sistemi çalışmıyor
+fren|Fren asistanı nedir
+fren|ABS sistemi nasıl çalışır
+fren|ESP ile ABS farkı nedir
+fren|Fren elektriği nasıl ölçülür
+fren|Fren sensörü arızalı
+fren|ABS sensörü değişimi
+fren|Fren pedalı geri gelmiyor
+fren|Fren yaparken vites düşmeli miyim
+fren|Motor freni nasıl kullanılır
+fren|Yağmurda fren mesafesi artar mı
+fren|Buzda fren nasıl yapılır
+fren|ABS devreye girince ne yapmalıyım
+fren|Fren balatası markaları hangisi iyi
+fren|Orijinal fren balatası mı muadil mi
+fren|Fren diski delikli mi düz mü
+fren|Fren diski boyama yapılır mı
+fren|Fren kaliperi boyama
+fren|Fren sistemi temizliği
+fren|Fren tozu tehlikeli mi
+fren|Fren gıcırtısı nasıl giderilir
+fren|Yeni fren balatası ses yapar mı
+fren|Fren balatası alıştırma nasıl yapılır
+fren|Fren diski ömrü ne kadar
+fren|Fren hidroliği ömrü ne kadar
+fren|Fren sisteminde hava nasıl alınır
+fren|Fren hidroliği değiştirme yöntemi
+fren|Fren merkezi revizyonu
+fren|Fren takviye pompası fiyatı
+fren|Fren arızası sürüş güvenliğini etkiler mi
+fren|Fren bakımı ihmal edilirse ne olur
+fren|Fren sistemi muayeneden geçer mi
+fren|Fren sistemi kontrolü nasıl yapılır
+fren|Oto frenci tavsiyesi
+fren|Fren servisi fiyatları
+fren|Fren bakımı ne kadar sürer
+fren|Fren yaptırırken nelere dikkat etmeli
+fren|İkinci el araçta fren kontrolü
+fren|Fren arıza teşhisi nasıl yapılır
+fren|Fren sistemi upgrade maliyeti
+fren|Büyük fren kiti nedir
+fren|4 pistonlu kaliper avantajı
+fren|Fren soğutma kanalı nedir
+fren|Yarış freni sokakta kullanılır mı
+fren|Karbon seramik fren nedir
+fren|Fren hidroliği DOT 3 mü DOT 4 mü
+fren|DOT 5 fren hidroliği kullanılır mı
+fren|Fren hidroliği karıştırılır mı
+fren|Silikon fren hidroliği avantajları
+fren|Fren sistemi modifikasyonu yasal mı
+fren|Fren modifikasyonu muayeneden geçer mi
+
+# ==================== ELEKTRİK VE AKÜ ====================
+elektrik|Araç akü bitti ne yapmalıyım
+elektrik|Akü şarj olmuyor
+elektrik|Akü sürekli boşalıyor
+elektrik|Akü ömrü ne kadardır
+elektrik|Akü ne zaman değişmeli
+elektrik|Akü nasıl takviye edilir
+elektrik|Akü nasıl şarj edilir
+elektrik|Akü marka tavsiyesi
+elektrik|Akü amper ne olmalı
+elektrik|Akü voltajı kaç olmalı
+elektrik|Alternatör arızası belirtileri
+elektrik|Alternatör şarj etmiyor
+elektrik|Alternatör kayışı koptu
+elektrik|Alternatör fiyatı ne kadar
+elektrik|Alternatör revizyonu mu değişim mi
+elektrik|Marş motoru çalışmıyor
+elektrik|Marş motoru sesi yapıyor ama çalışmıyor
+elektrik|Marş dişlisi aşınmış
+elektrik|Marş motoru fiyatı
+elektrik|Far lambası yanmıyor
+elektrik|Far ampulü değişimi
+elektrik|LED far mı halojen mi
+elektrik|Xenon far avantajları
+elektrik|Far ayarı nasıl yapılır
+elektrik|Sis lambası çalışmıyor
+elektrik|Sinyal lambası yanmıyor
+elektrik|Fren lambası yanmıyor
+elektrik|Stop lambası çalışmıyor
+elektrik|Plaka lambası yanmıyor
+elektrik|Geri vites lambası çalışmıyor
+elektrik|İç aydınlatma çalışmıyor
+elektrik|Torpido lambası yanmıyor
+elektrik|Gösterge lambası yanmıyor
+elektrik|Gösterge paneli çalışmıyor
+elektrik|Hız göstergesi çalışmıyor
+elektrik|Devir saati çalışmıyor
+elektrik|Yakıt göstergesi hatalı
+elektrik|Sıcaklık göstergesi çalışmıyor
+elektrik|Cam silecekleri çalışmıyor
+elektrik|Silecek motoru arızalı
+elektrik|Ön cam yıkama suyu gelmiyor
+elektrik|Arka cam silecek çalışmıyor
+elektrik|Elektrikli cam çalışmıyor
+elektrik|Cam açılmıyor
+elektrik|Cam kapanmıyor
+elektrik|Cam düğmesi çalışmıyor
+elektrik|Cam motoru arızalı
+elektrik|Ayna ısıtma çalışmıyor
+elektrik|Elektrikli ayna çalışmıyor
+elektrik|Ayna katlanmıyor
+elektrik|Korna çalışmıyor
+elektrik|Korna sesi değişti
+elektrik|Alarm sistemi çalışmıyor
+elektrik|Araç kendi kendine alarm yapıyor
+elektrik|Merkezi kilit çalışmıyor
+elektrik|Kapı kilidi açılmıyor
+elektrik|Kapı kilidi kapanmıyor
+elektrik|Anahtar pil bitti
+elektrik|İmmobilizer arızası
+elektrik|Araç çalışmıyor immobilizer
+elektrik|Yedek anahtar nasıl yaptırılır
+elektrik|Anahtar kodlama ücreti
+elektrik|Sigorta attı
+elektrik|Sigorta kutusu nerede
+elektrik|Hangi sigorta ne işe yarar
+elektrik|Sigorta değişimi nasıl yapılır
+elektrik|Röle arızası belirtileri
+elektrik|Kısa devre yapıyor
+elektrik|Elektrik tesisatı yanmış
+elektrik|Kablo tesisatı arızalı
+elektrik|Topraklama problemi
+elektrik|Akü kutup başları oksitlenmiş
+elektrik|Akü suyu nasıl eklenir
+elektrik|Bakımsız akü nedir
+elektrik|Jel akü avantajları
+elektrik|AGM akü nedir
+elektrik|Start stop akü farkı
+elektrik|Akü şarj cihazı tavsiyesi
+elektrik|Akü test cihazı nasıl kullanılır
+elektrik|Akü sağlığı nasıl ölçülür
+elektrik|Akü garanti süresi
+elektrik|Akü kış bakımı
+elektrik|Soğukta akü nasıl korunur
+elektrik|Akü donabilir mi
+elektrik|Elektrik arızası tehlikeli mi
+elektrik|Elektrik tesisatı yangına neden olur mu
+elektrik|Aftermarket elektrik aksesuarları
+elektrik|Araç elektroniği modifikasyonu
+elektrik|ECU arızası elektrik kaynaklı mı
+elektrik|CAN bus sistemi nedir
+elektrik|OBD soketi nerede
+elektrik|Arıza kodu nasıl okunur
+elektrik|Arıza kodu silme ücreti
+
+# ==================== KLİMA VE ISITMA ====================
+klima|Klima soğutmuyor
+klima|Klima çalışmıyor
+klima|Klimadan kötü koku geliyor
+klima|Klima gazı bitmiş
+klima|Klima gazı ne zaman doldurulmalı
+klima|Klima bakımı nasıl yapılır
+klima|Klima filtresi ne zaman değişmeli
+klima|Klima kompresörü arızalı
+klima|Klima kompresörü sesi yapıyor
+klima|Klima kondanseri arızalı
+klima|Klima evaporatörü tıkalı
+klima|Klima fan motoru çalışmıyor
+klima|Klima kontrol paneli arızalı
+klima|Otomatik klima çalışmıyor
+klima|Klima düğmesi yanıt vermiyor
+klima|Klimadan su damlıyor
+klima|Klima buzlanma yapıyor
+klima|Klima sistemi kaçak yapıyor
+klima|Klima gazı fiyatı
+klima|Klima bakım ücreti
+klima|Klima kompresör fiyatı
+klima|Kalorifer çalışmıyor
+klima|Kalorifer ısıtmıyor
+klima|Kalorifer peteği tıkalı
+klima|Kalorifer vanası arızalı
+klima|Kalorifer suyundan koku geliyor
+klima|Kalorifer fanı çalışmıyor
+klima|Isıtma sistemi arızalı
+klima|Ön cam buğulanıyor
+klima|Cam buğu çözme çalışmıyor
+klima|Arka cam rezistansı çalışmıyor
+klima|Koltuk ısıtma çalışmıyor
+klima|Direksiyon ısıtma arızalı
+klima|Webasto nedir
+klima|Park ısıtıcısı çalışmıyor
+klima|Klima açınca motor zorlanıyor
+klima|Klima açınca yakıt tüketimi artar mı
+klima|Klima ne kadar yakıt harcar
+klima|Klima kullanım ipuçları
+klima|Klima bakımı ihmal edilirse ne olur
+klima|Klima dezenfektanı işe yarar mı
+klima|Klima koku giderici tavsiyesi
+klima|Polen filtresi nedir
+klima|Kabin filtresi nerede
+klima|Kabin filtresi değişimi
+klima|Klima sistemi temizliği nasıl yapılır
+klima|Evaporatör temizliği
+klima|Klima sistemi dolum basıncı
+klima|R134a gazı mı R1234yf mi
+klima|Klima gazı çeşitleri
+klima|Eski tip klima gazı
+klima|Klima sistemi modifikasyonu
+klima|Araç kliması ev klimasından farklı mı
+klima|Klima açık pencere açık mı olmalı
+klima|Klima açmadan cam açmak mı
+klima|Klima yakıt tasarrufu ipuçları
+klima|Klima servisi tavsiyesi
+klima|Klima uzmanı arıyorum
+klima|Klima arızası nasıl anlaşılır
+klima|Klima basınç testi
+klima|Klima kaçak testi nasıl yapılır
+klima|Klima sistemi garanti kapsamında mı
+klima|Klima tamiri mi değişim mi
+klima|Klima kompresör revizyon
+klima|Klima yedek parça fiyatları
+klima|Orijinal klima parçası mı muadil mi
+klima|Klima performans artırma
+klima|Çift bölgeli klima nedir
+klima|4 bölgeli klima avantajları
+klima|Klima kontrol ünitesi arızası
+klima|Klima sensörü arızalı
+klima|İç mekan sıcaklık sensörü
+klima|Güneş sensörü arızalı
+klima|Nem sensörü nedir
+klima|Otomatik klima kalibrasyonu
+klima|Klima sistemi yazılım güncellemesi
+klima|Klima arıza kodu okuma
+klima|Klima arıza teşhisi
+klima|Klima ustası fiyatları
+klima|Klima doldurma fiyatı 2024
+klima|Kalorifer petek değişimi fiyatı
+klima|Kalorifer sistemi bakımı
+klima|Kışın klima kullanmalı mıyım
+klima|Klima açmak cama iyi gelir mi
+klima|Klima nemden korur mu
+klima|Araba içi kurutma klima ile olur mu
+klima|Klima suyu nereye gider
+klima|Klima tahliye borusu tıkalı
+
+# ==================== ŞANZIMAN VE VİTES ====================
+sanziman|Vites geçerken ses yapıyor
+sanziman|Vites girmiyor
+sanziman|Vites zor giriyor
+sanziman|Debriyaj ağırlaştı
+sanziman|Debriyaj kayıyor
+sanziman|Debriyaj seti ne zaman değişmeli
+sanziman|Debriyaj balata aşınmış
+sanziman|Debriyaj baskı arızalı
+sanziman|Volant değişimi gerekir mi
+sanziman|Çift kütleli volant arızası
+sanziman|Şanzıman yağı ne zaman değişmeli
+sanziman|Şanzıman yağı seviyesi nasıl kontrol edilir
+sanziman|Şanzıman arızası belirtileri
+sanziman|Şanzıman sesi yapıyor
+sanziman|Şanzıman takılıyor
+sanziman|Şanzıman revizyonu gerekir mi
+sanziman|Şanzıman değişimi fiyatı
+sanziman|Otomatik şanzıman arızası
+sanziman|DSG şanzıman sorunları
+sanziman|CVT şanzıman problemleri
+sanziman|Torque converter arızası
+sanziman|Otomatik şanzıman yağ değişimi
+sanziman|ATF yağ çeşitleri
+sanziman|Şanzıman yağı markası
+sanziman|Manuel mi otomatik mi
+sanziman|Otomatik şanzıman kullanım ipuçları
+sanziman|Park pozisyonunda araç geri gidiyor
+sanziman|N viteste araç hareket ediyor
+sanziman|Vites kolu gevşedi
+sanziman|Vites topuzu değişimi
+sanziman|Vites lastikleri değişimi
+sanziman|Vites kablosu koptu
+sanziman|Vites pimi arızalı
+sanziman|Vites kilidi çalışmıyor
+sanziman|Otomatik viteste R ye geçmiyor
+sanziman|Otomatik viteste D ye geçmiyor
+sanziman|Otomatik vites kayması
+sanziman|Vites geç yapıyor
+sanziman|Vites sert yapıyor
+sanziman|Şanzıman ECU arızası
+sanziman|Şanzıman adapte öğrenimi
+sanziman|Şanzıman reset nasıl yapılır
+sanziman|Oto şanzıman servisi
+sanziman|Şanzıman uzmanı tavsiye
+sanziman|Debriyaj seti fiyatı
+sanziman|Debriyaj işçilik ücreti
+sanziman|Debriyaj merkezi arızalı
+sanziman|Hidrolik debriyaj pompa arızası
+sanziman|Debriyaj pedal boşluğu ayarı
+sanziman|Debriyaj pedal ağırlığı ayarı
+sanziman|Debriyaj kablosu koptu
+sanziman|Yarı otomatik vites nedir
+sanziman|Paddle shift kullanım
+sanziman|Triptonik modu nasıl kullanılır
+sanziman|Sport modu ne işe yarar
+sanziman|Eco modu yakıt tasarrufu sağlar mı
+sanziman|Şanzıman sıcaklık uyarısı
+sanziman|Şanzıman aşırı ısınıyor
+sanziman|Şanzıman soğutma sistemi
+sanziman|Şanzıman yağ soğutucu arızası
+sanziman|Şanzıman yağ kaçağı
+sanziman|Şanzıman conta değişimi
+sanziman|Şaft contası yağ sızıntısı
+sanziman|Arka aks dişli sesi
+sanziman|Diferansiyel arızası
+sanziman|Arka köprü arızası
+sanziman|4x4 şanzıman sorunu
+sanziman|Transfer kutusu arızası
+sanziman|AWD sistem arızası
+sanziman|Haldex arızası
+sanziman|Part time 4WD kullanımı
+sanziman|Full time AWD avantajları
+sanziman|4x4 sistemleri karşılaştırma
+sanziman|Şaft arızası belirtileri
+sanziman|Kardan mili arızası
+sanziman|U kavraması sesi
+sanziman|CV joint arızası
+sanziman|Aks körüğü yırtılmış
+sanziman|Aks değişimi fiyatı
+sanziman|İç aks mafsalı arızalı
+sanziman|Dış aks mafsalı sesi
+sanziman|Dönüşte tıkırtı sesi
+sanziman|Hızda titreşim aks kaynaklı mı
+sanziman|Şanzıman montaj lastikleri
+sanziman|Motor şanzıman bağlantı arızası
+sanziman|Şanzıman garanti süresi
+sanziman|Şanzıman garantide mi
+sanziman|Şanzıman arızası maliyeti
+sanziman|En pahalı şanzıman tamiri
+
+# ==================== LASTİK VE JANT ====================
+lastik|Lastik basıncı kaç olmalı
+lastik|Lastik patladı ne yapmalıyım
+lastik|Lastik şişirme nasıl yapılır
+lastik|Lastik değişimi nasıl yapılır
+lastik|Stepne nerede
+lastik|Stepne nasıl kullanılır
+lastik|Lastik tamiri mümkün mü
+lastik|Lastik yanaktan patlamış tamir edilir mi
+lastik|Lastik ömrü ne kadar
+lastik|Lastik ne zaman değişmeli
+lastik|Lastik diş derinliği kaç mm olmalı
+lastik|Kış lastiği ne zaman takılmalı
+lastik|Yaz lastiği ne zaman takılmalı
+lastik|4 mevsim lastik önerilir mi
+lastik|Kış lastiği zorunlu mu
+lastik|Lastik ebatı nasıl okunur
+lastik|Lastik ebatı değiştirilebilir mi
+lastik|Jant ebatı büyütülebilir mi
+lastik|Düşük profil lastik avantajları
+lastik|Yüksek profil lastik avantajları
+lastik|Run flat lastik nedir
+lastik|XL lastik ne demek
+lastik|Lastik hız endeksi nedir
+lastik|Lastik yük endeksi nedir
+lastik|Lastik markası tavsiyesi
+lastik|En iyi kış lastiği hangisi
+lastik|En iyi yaz lastiği hangisi
+lastik|Ucuz lastik alınır mı
+lastik|Çin lastiği kaliteli mi
+lastik|Michelin mi Bridgestone mu
+lastik|Continental mi Pirelli mi
+lastik|Lastik balans ayarı
+lastik|Lastik rotasyon nedir
+lastik|Lastik rot ayarı ne zaman yapılmalı
+lastik|Araç tek tarafa çekiyor lastik mi
+lastik|Lastik düzensiz aşınmış
+lastik|İç lastik dış lastik farkı
+lastik|İç lastik aşınması nedenleri
+lastik|Dış lastik aşınması nedenleri
+lastik|Lastik yaşlanması tehlikeli mi
+lastik|5 yıllık lastik kullanılır mı
+lastik|DOT numarası nedir
+lastik|Lastik üretim tarihi nereden anlaşılır
+lastik|Lastik saklama koşulları
+lastik|Kış lastiği yazın kullanılır mı
+lastik|Yaz lastiği kışın tehlikeli mi
+lastik|Çamur ve kar lastiği nedir
+lastik|AT lastik ne demek
+lastik|MT lastik ne demek
+lastik|Arazi lastiği sokakta kullanılır mı
+lastik|Lastik basınç sensörü arızalı
+lastik|TPMS uyarısı nedir
+lastik|Lastik basınç uyarısı söndürme
+lastik|Jant çizildi tamir edilir mi
+lastik|Alaşım jant tamiri
+lastik|Jant düzeltme işlemi
+lastik|Jant boyama fiyatı
+lastik|Jant kaplama çeşitleri
+lastik|Çelik jant mı alaşım jant mı
+lastik|Jant eğrildi nasıl anlarım
+lastik|Jant çatlağı tehlikeli mi
+lastik|Jant kapağı takma
+lastik|Bijon somunu sıkılmamış
+lastik|Bijon somunu sıkma torku
+lastik|Hırsızlık önleyici bijon
+lastik|Lastik kilidi nasıl açılır
+lastik|Lastik zincirleme nasıl yapılır
+lastik|Kar zinciri çeşitleri
+lastik|Tekstil zincir mi metal zincir mi
+lastik|Lastikçi tavsiyesi
+lastik|Lastik fiyatları 2024
+lastik|Online lastik almak güvenli mi
+lastik|Lastik garantisi ne kadar sürer
+lastik|Lastikte fabrika hatası
+lastik|Lastik şikayeti nereye yapılır
+lastik|Lastik sigorta yaptırmalı mıyım
+lastik|Yol yardım lastiği değiştirir mi
+lastik|Lastik tamir kiti kullanımı
+lastik|Lastik tamir spreyi işe yarar mı
+lastik|Kompresör ile lastik şişirme
+lastik|Azot ile lastik şişirme avantajı
+lastik|Lastik parlatıcı zararlı mı
+lastik|Lastik koruyucu ürün tavsiyesi
+lastik|Beyaz harfli lastik bakımı
+
+# ==================== SÜSPANSİYON VE DİREKSİYON ====================
+suspansiyon|Araç yol tutuşu kötü
+suspansiyon|Araç virajda yatıyor
+suspansiyon|Süspansiyon sesi yapıyor
+suspansiyon|Amortisör arızası belirtileri
+suspansiyon|Amortisör ne zaman değişmeli
+suspansiyon|Amortisör yağ kaçırıyor
+suspansiyon|Amortisör fiyatı
+suspansiyon|Ön amortisör mü arka amortisör mü
+suspansiyon|Amortisör takozu aşınmış
+suspansiyon|Viraj denge çubuğu arızalı
+suspansiyon|Z rot arızası
+suspansiyon|Rotil arızası belirtileri
+suspansiyon|Rot kolu aşınmış
+suspansiyon|Salıncak kolu arızalı
+suspansiyon|Salıncak burcu değişimi
+suspansiyon|Alt salıncak mı üst salıncak mı
+suspansiyon|Bilyalı mafsal arızası
+suspansiyon|Süspansiyon yayı kırık
+suspansiyon|Helezon yay mı yaprak yay mı
+suspansiyon|Süspansiyon yükseltme
+suspansiyon|Süspansiyon alçaltma
+suspansiyon|Coilover nedir
+suspansiyon|Havalı süspansiyon arızası
+suspansiyon|Adaptif süspansiyon sorunu
+suspansiyon|Spor süspansiyon faydaları
+suspansiyon|Konfor süspansiyon mu spor mu
+suspansiyon|Süspansiyon sertlik ayarı
+suspansiyon|Direksiyon ağırlaştı
+suspansiyon|Direksiyon hafifliği kayboldu
+suspansiyon|Hidrolik direksiyon sızıntısı
+suspansiyon|Direksiyon pompası arızalı
+suspansiyon|Direksiyon kutusu arızalı
+suspansiyon|Kremayer direksiyon sesi
+suspansiyon|Elektrikli direksiyon arızası
+suspansiyon|EPS arıza lambası
+suspansiyon|Direksiyon simidi titriyor
+suspansiyon|Direksiyon oyunu var
+suspansiyon|Direksiyon merkeze dönmüyor
+suspansiyon|Rot ayarı bozuk
+suspansiyon|Kamber ayarı nedir
+suspansiyon|Kaster ayarı nedir
+suspansiyon|Toe ayarı ne demek
+suspansiyon|Düz giderken direksiyon eğri
+suspansiyon|Araç düz gitmiyor
+suspansiyon|Direksiyon simidi çıtırdıyor
+suspansiyon|Dönüşte ses geliyor
+suspansiyon|Direksiyon kilitleniyor
+suspansiyon|Direksiyon kilitli kaldı
+suspansiyon|Direksiyon açısı sensörü arızalı
+suspansiyon|Direksiyon sıfırlama nasıl yapılır
+suspansiyon|Direksiyon hidroligi değişimi
+suspansiyon|Direksiyon kutusu revizyonu
+suspansiyon|Rot balans fiyatı
+suspansiyon|Ön düzen ayarı fiyatı
+suspansiyon|Süspansiyon komple değişim maliyeti
+suspansiyon|Amortisör takımı fiyatı
+suspansiyon|McPherson süspansiyon nedir
+suspansiyon|Çift salıncak süspansiyon avantajı
+suspansiyon|Multi-link süspansiyon
+suspansiyon|Torsion bar süspansiyon
+suspansiyon|Yarı bağımsız süspansiyon
+suspansiyon|Bağımsız süspansiyon avantajları
+suspansiyon|Arka aks süspansiyon sistemi
+suspansiyon|SUV süspansiyon farkı
+suspansiyon|Pickup süspansiyon özellikleri
+suspansiyon|Ağır yük taşımada süspansiyon
+suspansiyon|Yardımcı yay takma
+suspansiyon|Air lift sistemi
+suspansiyon|Lift kit nedir
+suspansiyon|Gövde lift zararlı mı
+suspansiyon|Süspansiyon modifikasyonu yasal mı
+suspansiyon|Süspansiyon garantisi
+suspansiyon|Süspansiyon parçaları garantide mi
+suspansiyon|Süspansiyon bakımı nasıl yapılır
+suspansiyon|Süspansiyon kontrolü ne zaman
+suspansiyon|Süspansiyon sökme takma işçilik
+suspansiyon|Süspansiyon servisi tavsiye
+suspansiyon|Rot balans servisi fiyat
+
+# ==================== EGZOZ VE EMİSYON ====================
+egzoz|Egzozdan ses geliyor
+egzoz|Egzoz patlak
+egzoz|Egzoz delinmiş
+egzoz|Egzoz pası nasıl önlenir
+egzoz|Egzoz susturucusu arızalı
+egzoz|Egzoz manifoldu çatlak
+egzoz|Egzoz contası yanmış
+egzoz|Egzoz borusu değişimi
+egzoz|Egzoz sistemi fiyatı
+egzoz|Katalitik konvertör arızası
+egzoz|Katalizör tıkalı
+egzoz|Katalizör çalındı
+egzoz|Katalizör fiyatı neden pahalı
+egzoz|Katalizör bypass yasal mı
+egzoz|Katalizör temizliği
+egzoz|Egzoz emisyon testi
+egzoz|Egzoz emisyon muayene
+egzoz|Araç emisyon değerleri yüksek
+egzoz|Emisyon düşürme yöntemleri
+egzoz|EGR valfi arızası
+egzoz|EGR valfi temizliği
+egzoz|EGR iptal etme
+egzoz|DPF filtresi tıkalı
+egzoz|DPF regenerasyon nedir
+egzoz|DPF uyarı lambası
+egzoz|DPF silme işlemi
+egzoz|DPF temizliği fiyatı
+egzoz|AdBlue sistemi arızası
+egzoz|AdBlue nedir
+egzoz|AdBlue ne zaman doldurulmalı
+egzoz|AdBlue kalitesi önemli mi
+egzoz|SCR sistemi arızası
+egzoz|Dizel partikül filtresi
+egzoz|Benzinli araçta GPF
+egzoz|Lambda sensörü arızası
+egzoz|Oksijen sensörü değişimi
+egzoz|Egzoz gazı sıcaklık sensörü
+egzoz|Egzoz basınç sensörü arızalı
+egzoz|Egzoz sistemi modifikasyonu
+egzoz|Spor egzoz takma
+egzoz|Egzoz sesi artırma
+egzoz|Aktif egzoz sistemi
+egzoz|Egzoz flap valfi
+egzoz|Egzoz ucu değişimi
+egzoz|Egzoz ucu çeşitleri
+egzoz|Çift çıkış egzoz
+egzoz|Egzoz paslanmaz çelik mi
+egzoz|Titanyum egzoz avantajları
+egzoz|Egzoz kaplaması
+egzoz|Egzoz ısı bandı
+egzoz|Egzoz heat wrap
+egzoz|Downpipe nedir
+egzoz|Turbo back egzoz
+egzoz|Cat back egzoz
+egzoz|Axle back egzoz
+egzoz|Egzoz header değişimi
+egzoz|Uzun header kısa header
+egzoz|Egzoz sistemi güç artışı
+egzoz|Egzoz değişimi muayeneden geçer mi
+egzoz|Egzoz sesi ceza kesilir mi
+egzoz|Egzoz modifikasyon cezası
+egzoz|Egzoz onarım kaynağı
+egzoz|Egzoz kaynak yapılır mı
+egzoz|Egzoz macunu kullanımı
+egzoz|Egzoz kelepçesi değişimi
+egzoz|Egzoz askı lastiği
+egzoz|Egzoz titreşim sorunu
+egzoz|Egzoz rezonans sesi
+egzoz|Egzoz drone sesi nasıl giderilir
+egzoz|Egzoz sistemi garanti kapsamında mı
+egzoz|Egzoz ustası tavsiye
+egzoz|Egzoz tamiri fiyatı
+egzoz|Komple egzoz değişimi maliyeti
+egzoz|Araç egzoz muayenesi
+egzoz|Egzoz gazı km başına
+egzoz|Egzoz gazı çevreye etkisi
+egzoz|Euro 6 emisyon standardı
+egzoz|Euro 7 ne zaman gelecek
+
+# ==================== BAKIM VE GENEL ====================
+bakim|Araç bakımı nasıl yapılır
+bakim|Periyodik bakım nedir
+bakim|10.000 km bakımı neler yapılır
+bakim|30.000 km bakımı neler yapılır
+bakim|60.000 km bakımı neler yapılır
+bakim|Yağ ve filtre değişimi ne kadar
+bakim|Motor yağı çeşitleri
+bakim|5W30 mu 5W40 mı
+bakim|Sentetik yağ mı mineral yağ mı
+bakim|Yağ markası tavsiyesi
+bakim|Yağ değişimi ne zaman yapılır
+bakim|Yağ değişim aralığı
+bakim|Hava filtresi ne zaman değişir
+bakim|Yakıt filtresi değişimi
+bakim|Polen filtresi bakımı
+bakim|Buji değişim zamanı
+bakim|Bobin bakımı gerekir mi
+bakim|Triger seti ne zaman değişir
+bakim|V kayış değişimi
+bakim|Balata kontrolü nasıl yapılır
+bakim|Fren hidrolik kontrolü
+bakim|Antifriz kontrolü
+bakim|Antifriz rengi önemli mi
+bakim|Cam suyu hangisi kullanılmalı
+bakim|Silecek lastiği değişimi
+bakim|Far lambası temizliği
+bakim|Far parlatma işlemi
+bakim|Boya koruma
+bakim|Seramik kaplama nedir
+bakim|Araç yıkama ipuçları
+bakim|Motor yıkama yapılmalı mı
+bakim|Şase temizliği gerekli mi
+bakim|Pas koruması nasıl yapılır
+bakim|Alt koruma nedir
+bakim|Araç cilalama
+bakim|Hava süspansiyon bakımı
+bakim|Akü bakımı kış öncesi
+bakim|Kışa hazırlık bakımı
+bakim|Yaza hazırlık bakımı
+bakim|Uzun yol öncesi kontroller
+bakim|İkinci el araç alırken kontroller
+bakim|Ekspertiz yaptırmalı mıyım
+bakim|Tramer kaydı nedir
+bakim|Araç değeri nasıl anlaşılır
+bakim|Araç kilometre kontrolü
+bakim|Kilometre düşürme nasıl anlaşılır
+bakim|Garanti kapsamında bakım
+bakim|Yetkili servis mi özel servis mi
+bakim|Özel servis garantiyi bozar mı
+bakim|Bakım maliyeti nasıl düşürülür
+bakim|Muadil yedek parça kullanılır mı
+bakim|OEM parça nedir
+bakim|Orijinal yedek parça nereden alınır
+bakim|Online yedek parça güvenilir mi
+bakim|Araç garanti süresi
+bakim|Uzatılmış garanti alınmalı mı
+bakim|Sigorta kasko farkı
+bakim|Kasko hangi hasarları karşılar
+bakim|Trafik sigortası zorunlu mu
+bakim|Araç muayenesi nasıl yapılır
+bakim|Muayene randevusu nasıl alınır
+bakim|Muayeneden kalmamak için
+bakim|Egzoz emisyon muayenesi
+bakim|Fenni muayene kontrol listesi
+bakim|MTV ne zaman ödenir
+bakim|Araç vergisi hesaplama
+bakim|2024 MTV tablosu
+bakim|Trafik cezası sorgulama
+bakim|E devlet araç sorgulama
+bakim|Plaka sorgulama
+bakim|Araç sicil kaydı
+bakim|Rehin sorgulama
+bakim|Haciz sorgulama
+bakim|Araç devir işlemleri
+bakim|Vekaletname ile satış
+bakim|Araç satış sonrası yapılacaklar
+bakim|Yeni araç teslim kontrolleri
+bakim|0 km araç nasıl kullanılır
+bakim|Rodaj dönemi nedir
+bakim|İlk 1000 km dikkat edilecekler
+bakim|Uzun süre kullanılmayan araç bakımı
+bakim|Garajda bekleyen araç
+bakim|Araç nasıl saklanır
+bakim|Mevsimsel araç bakımı
+bakim|Araç temizlik ürünleri
+bakim|İç mekan temizliği
+bakim|Deri koltuk bakımı
+bakim|Kumaş koltuk temizliği
+bakim|Paspas temizliği
+bakim|Araç parfümü zararlı mı
+bakim|Torpido bakımı
+bakim|Cam temizliği nasıl yapılır
+bakim|Araç bakım uygulamaları
+bakim|Bakım takip programı
+bakim|Servis randevusu nasıl alınır
+
+# ==================== SELAMLAMA ====================
+selamlama|Merhaba
+selamlama|Selam
+selamlama|Günaydın
+selamlama|İyi akşamlar
+selamlama|İyi geceler
+selamlama|Nasılsın
+selamlama|Naber
+selamlama|Ne haber
+selamlama|Hoş geldin
+selamlama|Hello
+selamlama|Hi
+selamlama|Hey
+selamlama|Selamlar
+selamlama|Merhabalar
+selamlama|Herkese merhaba
+selamlama|İyi günler
+selamlama|Hayırlı günler
+selamlama|Sana da merhaba
+selamlama|Teşekkürler
+selamlama|Teşekkür ederim
+selamlama|Sağol
+selamlama|Sağolasın
+selamlama|Çok teşekkürler
+selamlama|Rica ederim
+selamlama|Bir şey değil
+selamlama|Önemli değil
+selamlama|Hoşça kal
+selamlama|Görüşürüz
+selamlama|İyi günler dilerim
+selamlama|Kendine iyi bak
+selamlama|Bye
+selamlama|Goodbye
+selamlama|Bay bay
+selamlama|Hadi görüşürüz
+selamlama|Sonra görüşürüz
+selamlama|Yarın görüşürüz
+selamlama|İyi çalışmalar
+selamlama|Kolay gelsin
+selamlama|Allah kolaylık versin
+selamlama|Hayırlı işler
+selamlama|Sen kimsin
+selamlama|Kimsin sen
+selamlama|Nesin sen
+selamlama|Ne yapabilirsin
+selamlama|Bana nasıl yardımcı olabilirsin
+selamlama|Yardım eder misin
+selamlama|Yardımına ihtiyacım var
+selamlama|Bir sorum var
+selamlama|Sormak istiyorum
+selamlama|Merak ediyorum
+selamlama|Bilgi alabilir miyim
+selamlama|Danışmak istiyorum
+selamlama|Senin adın ne
+selamlama|Adın ne
+selamlama|İsmin ne
+selamlama|Kendini tanıt
+selamlama|Tanışalım mı
+selamlama|Sen yapay zeka mısın
+selamlama|Robot musun
+selamlama|Bot musun
+selamlama|Gerçek insan mısın
+selamlama|Canlı destek misin
+selamlama|Araba uzmanı mısın
+selamlama|Araç konusunda yardımcı olur musun
+selamlama|Oto tamircisi misin
+selamlama|Usta mısın
+selamlama|Mekanikçi misin
+selamlama|Teknik destek misin
+selamlama|Hangi konularda yardım edersin
+selamlama|Ne hakkında soru sorabilirim
+selamlama|Uzmanlık alanın ne
+selamlama|Neler biliyorsun
+selamlama|Hangi markalar hakkında bilgin var
+selamlama|Türkçe konuşuyor musun
+selamlama|Türkçe biliyor musun
+selamlama|İngilizce konuşuyor musun
+selamlama|Çalışma saatlerin ne
+selamlama|7/24 müsün
+selamlama|Her zaman burada mısın
+selamlama|Ne zaman müsait olursun
+selamlama|Aa
+selamlama|Hmm
+selamlama|Şey
+selamlama|Peki
+selamlama|Tamam
+selamlama|Ok
+selamlama|Anladım
+selamlama|Evet
+selamlama|Hayır
+selamlama|Olabilir
+selamlama|Belki
+selamlama|Bilmiyorum
+
+# ==================== KAPSAM DIŞI ====================
+kapsam_disi|Yemek tarifi ver
+kapsam_disi|Pizza nasıl yapılır
+kapsam_disi|Kek tarifi
+kapsam_disi|Bugün ne pişirsem
+kapsam_disi|En iyi restoran nerede
+kapsam_disi|Yemek siparişi nasıl verilir
+kapsam_disi|Doktor tavsiye eder misin
+kapsam_disi|Hastaneye gitmeli miyim
+kapsam_disi|Başım ağrıyor
+kapsam_disi|Mide ağrısına ne iyi gelir
+kapsam_disi|İlaç önerir misin
+kapsam_disi|Ateşim var ne yapmalıyım
+kapsam_disi|Grip oldum
+kapsam_disi|Corona belirtileri nelerdir
+kapsam_disi|Sağlık problemi var
+kapsam_disi|Diyet önerisi
+kapsam_disi|Kilo vermek istiyorum
+kapsam_disi|Spor programı
+kapsam_disi|Python kodu yaz
+kapsam_disi|JavaScript öğrenmek istiyorum
+kapsam_disi|Program yazmayı öğret
+kapsam_disi|App nasıl yapılır
+kapsam_disi|Web sitesi yapabilir misin
+kapsam_disi|Kod hatası var yardım et
+kapsam_disi|Algoritma sorusu
+kapsam_disi|Database tasarımı
+kapsam_disi|Matematik sorusu
+kapsam_disi|Fizik formülü
+kapsam_disi|Kimya sorusu
+kapsam_disi|Biyoloji ödevi
+kapsam_disi|Tarih sorusu
+kapsam_disi|Coğrafya sorusu
+kapsam_disi|Edebiyat analizi
+kapsam_disi|Şiir yaz
+kapsam_disi|Hikaye yaz
+kapsam_disi|Makale yaz
+kapsam_disi|Ödev yap
+kapsam_disi|Tez konusu bul
+kapsam_disi|Siyaset hakkında ne düşünüyorsun
+kapsam_disi|Seçimler nasıl olacak
+kapsam_disi|Hangi parti iyi
+kapsam_disi|Ekonomi nasıl
+kapsam_disi|Dolar ne olacak
+kapsam_disi|Altın almalı mıyım
+kapsam_disi|Borsa tavsiyesi
+kapsam_disi|Kripto para önerisi
+kapsam_disi|Bitcoin almalı mıyım
+kapsam_disi|Emlak yatırımı
+kapsam_disi|Ev almak mı kiralamak mı
+kapsam_disi|Hava durumu nasıl
+kapsam_disi|Yarın yağmur yağacak mı
+kapsam_disi|Tatil önerisi
+kapsam_disi|Nereye gitmeli
+kapsam_disi|Otel tavsiyesi
+kapsam_disi|Uçak bileti fiyatları
+kapsam_disi|Vize nasıl alınır
+kapsam_disi|Pasaport başvurusu
+kapsam_disi|Film önerisi
+kapsam_disi|Dizi tavsiyesi
+kapsam_disi|En iyi film hangisi
+kapsam_disi|Netflix de ne izlemeliyim
+kapsam_disi|Müzik önerisi
+kapsam_disi|Şarkı sözleri
+kapsam_disi|Hangi sanatçı daha iyi
+kapsam_disi|Konser biletleri
+kapsam_disi|Oyun önerisi
+kapsam_disi|Hangi oyun güzel
+kapsam_disi|Playstation mu Xbox mu
+kapsam_disi|Bilgisayar toplama
+kapsam_disi|Telefon önerisi
+kapsam_disi|iPhone mı Samsung mu
+kapsam_disi|Laptop tavsiyesi
+kapsam_disi|Tablet almalı mıyım
+kapsam_disi|Kahve nasıl yapılır
+kapsam_disi|Çay demleme
+kapsam_disi|Alkol zararlı mı
+kapsam_disi|Sigara nasıl bırakılır
+kapsam_disi|İlişki tavsiyesi
+kapsam_disi|Flört nasıl edilir
+kapsam_disi|Evlilik önerisi
+kapsam_disi|Çocuk yetiştirme
+kapsam_disi|Evcil hayvan bakımı
+kapsam_disi|Köpek maması
+kapsam_disi|Kedi bakımı
+kapsam_disi|Bahçe düzenleme
+kapsam_disi|Ev dekorasyon
+kapsam_disi|Boya rengi önerisi
+kapsam_disi|Mobilya tavsiyesi
+kapsam_disi|Maç sonucu ne oldu
+kapsam_disi|Futbol haberleri
+kapsam_disi|Basketbol maçı
+kapsam_disi|Galatasaray mı Fenerbahçe mi
+kapsam_disi|Milli takım
+kapsam_disi|Transfer haberleri
+kapsam_disi|Spor bahis
+kapsam_disi|İddaa tahmini
+kapsam_disi|Sınav sorusu çöz
+kapsam_disi|KPSS çalışıyorum
+kapsam_disi|YKS hazırlık
+kapsam_disi|İngilizce öğret
+kapsam_disi|Almanca çeviri yap
+kapsam_disi|Çeviri yapabilir misin
+kapsam_disi|Metin özetle
+kapsam_disi|Bu yazıyı düzelt

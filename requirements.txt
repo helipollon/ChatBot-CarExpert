@@ -7,3 +7,5 @@ python-dotenv
 PyPDF2
 python-docx
 openpyxl
+
+langchain-openai

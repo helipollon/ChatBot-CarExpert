@@ -1,0 +1,245 @@
+# Intent Classification Test Data
+# Bu dosya eğitim verisinden FARKLI örnekler içerir
+# Format: intent|test_cümle
+
+# ==================== MOTOR TEST ====================
+motor|Aracım marş basmıyor sabahları
+motor|Motor gücü azalmış gibi hissediyorum
+motor|Araç seyir halindeyken aniden durdu
+motor|Motordan metal sesi geliyor
+motor|Conta yağ sızıntısı yapıyor sanırım
+motor|Turbo neden ıslık sesi çıkarıyor
+motor|Araç park halindeyken bile titriyor
+motor|Motor suyu eksilmiş neden olabilir
+motor|Kış aylarında araç zor çalışıyor
+motor|Dizel motorlarda ısıtma bujisi ne işe yarar
+motor|Benzin koksu geliyor araçtan
+motor|Motor yağı siyahlaştı değiştirmeli miyim
+motor|Araç ani güç kaybı yaşıyor
+motor|Silindir kapağı çatlamış olabilir mi
+motor|Radyatör fanı sürekli çalışıyor
+motor|Eksik silindir çalışıyor gibi
+motor|Motor blok numarası nereden bakılır
+motor|Distribütör arızası nasıl anlaşılır
+motor|Krank sensörü bozulunca ne olur
+motor|Gaz kelebeği temizlenmeli mi
+
+# ==================== FREN TEST ====================
+fren|Frene basınca araç titriyor
+fren|Fren pedalına basınca ses çıkıyor
+fren|Araç durmakta zorlanıyor
+fren|Fren balatalarım ne zaman biter
+fren|El freni ipi uzamış olabilir mi
+fren|ABS uyarısı yanıp söndü
+fren|Yağmurda fren performansı düşüyor
+fren|Fren disklerim paslandı sorun olur mu
+fren|Fren hidroliği pembe renkte normal mi
+fren|Arka tekerlekler kitlendi neden
+fren|Park freni otomatik çalışmıyor
+fren|Fren pedalı çok yüksekte
+fren|İniş yaparken frenler ısınıyor
+fren|Acil durumlarda fren mesafesi ne kadar
+fren|Fren takviye pompası ne işe yarar
+fren|Fren müşürü nedir ne yapar
+fren|Fren diskinde çizikler var
+fren|Yokuş aşağı fren yapmadan inmek
+fren|Otomatik park freni nasıl iptal edilir
+fren|Seramik fren balatası avantajları
+
+# ==================== ELEKTRİK TEST ====================
+elektrik|Araç anahtarı döndürünce hiç ses yok
+elektrik|Akü şarjı gece boşalıyor
+elektrik|Farlar karanlık hafif ışık veriyor
+elektrik|Elektrik camlar yarıda kalıyor
+elektrik|Araç içi lamba sürekli yanıyor
+elektrik|Gösterge iğneleri titriyor
+elektrik|Kapı açık uyarısı sürekli veriyor
+elektrik|Bagaj lambası yanmıyor
+elektrik|Uzaktan kumanda çalışmıyor
+elektrik|Kontak anahtarı dönmüyor
+elektrik|Sigorta kutusu erimiş
+elektrik|Kablo bağlantıları gevşemiş olabilir mi
+elektrik|Araç elektroniği resetlendi
+elektrik|Akü terminalleri beyazlamış
+elektrik|Jeneratör sarjı düşük gösteriyor
+elektrik|Arka sis lambası açılmıyor
+elektrik|Gündüz LED ışıkları yanmıyor
+elektrik|Start stop sistemi çalışmıyor
+elektrik|OBD portu çalışmıyor
+elektrik|Araç beynine su kaçmış
+
+# ==================== KLİMA TEST ====================
+klima|Klimayı açınca kötü bir koku yayılıyor
+klima|Klimadan su damlıyor ayak altına
+klima|Sıcak hava üflemiyor kalorifer
+klima|Klima kompresörü takılıp duruyor
+klima|Araç içi buğulanıyor sürekli
+klima|Klima gazı ne kadar sürede biter
+klima|Kabin filtresi tıkalı mı nasıl anlarım
+klima|Havalandırma kokusu nasıl giderilir
+klima|Arka yolcular için klima çalışmıyor
+klima|Otomatik klima yanlış sıcaklık gösteriyor
+klima|Cam buğu çözücü etkisiz
+klima|Direksiyon ısıtma çok geç ısınıyor
+klima|Klima kompresör kayışı ses yapıyor
+klima|Klima kondanseri taşla hasar görmüş
+klima|Havalandırma fanı yavaş çalışıyor
+klima|Koltuk serin tutma özelliği bozuk
+klima|Klima açıkken motor zorlanıyor fazla
+klima|Kalorifer radyatörü sızıntı yapıyor
+klima|İç filtre ne sıklıkla değişmeli
+klima|Klima sistemi tamamen boş
+
+# ==================== ŞANZIMAN TEST ====================
+sanziman|Geri vitese geçerken takılıyor
+sanziman|Vites kolundan cızırtı sesi geliyor
+sanziman|Debriyaj kokusu geliyor
+sanziman|Araç sarsarak kalkıyor
+sanziman|Otomatik vites atlarken sarsıntı var
+sanziman|Çift kavrama şanzıman titreşim yapıyor
+sanziman|Şanzıman yağı kırmızı renkte değil
+sanziman|Vites kolu çok gevşek
+sanziman|Sport modda vites geç atıyor
+sanziman|Yokuşta araç geri kayıyor
+sanziman|Aks homurdaması ne demek
+sanziman|Transfer kutusu sesi duyuluyor
+sanziman|Manuel vites çok ağırlaştı
+sanziman|Kuru kavrama islak kavrama farkı
+sanziman|Otomatik vites kaydırma modu nedir
+sanziman|Yarış çıkışında debriyaj nasıl kullanılır
+sanziman|Şanzıman adaptasyonu ne demek
+sanziman|Mekatronic ünite arızası
+sanziman|CVT şanzıman ömrü ne kadar
+sanziman|Arka aks diş sesi geliyor
+
+# ==================== LASTİK TEST ====================
+lastik|Lastik yamuğu fark ettim
+lastik|Lastik basıncı uyarısı söndürülmüyor
+lastik|Jantlarım kaldırıma sürtündü
+lastik|Lastiklerde yamalar güvenli mi
+lastik|Run flat lastikle ne kadar gidilebilir
+lastik|Yazlık lastik kışın tehlikeli mi
+lastik|Lastik ebat uyumu nasıl kontrol edilir
+lastik|Lastik raf ömrü kaç yıl
+lastik|Diğer tekerlekler düzgün aşınmamış
+lastik|Lastik rotasyonu ne sıklıkla yapılmalı
+lastik|Çelik jant hafif jant farkı
+lastik|Lastik krosu ne demek
+lastik|Lastik yaması kalıcı çözüm mü
+lastik|Jant genişletme yapılabilir mi
+lastik|M+S lastik kış lastiği midir
+lastik|Lastik patlamasında nasıl davranmalı
+lastik|Hava basıncı yüksekliğe göre değişir mi
+lastik|Nitrojen kullanımı gerçekten faydalı mı
+lastik|Jant kapağı düştü tehlike var mı
+lastik|Lastik tamir kiti nasıl kullanılır
+
+# ==================== SÜSPANSIYON TEST ====================
+suspansiyon|Virajlarda araç fazla yatıyor
+suspansiyon|Kasis geçerken gürültü oluyor
+suspansiyon|Direksiyon hafifliği kayboldu
+suspansiyon|Ön taraftan tıkırtı sesi geliyor
+suspansiyon|Rot ayarı ne sıklıkta yapılmalı
+suspansiyon|Amortisör yağı sızıntısı tehlikeli mi
+suspansiyon|Araç yüksekliği dengesiz
+suspansiyon|Havalı süspansiyon sönmüyor
+suspansiyon|Direksiyon simidinde oynama var
+suspansiyon|Taşıyıcı kol burçları değişmeli mi
+suspansiyon|McPherson mu çift salıncak mı iyi
+suspansiyon|Süspansiyon sertlik ayarı nasıl yapılır
+suspansiyon|Rot kolu değişimi zor mu
+suspansiyon|Bijon somunu gevşemiş olabilir mi
+suspansiyon|Dingil değişimi gerekir mi
+suspansiyon|Teker balans bozuk belirtileri
+suspansiyon|Çukurlarda direksiyon sarsılıyor
+suspansiyon|Arka aksda ses geliyor
+suspansiyon|Ön düzen ayarı nedir
+suspansiyon|Spor süspansiyon konforu azaltır mı
+
+# ==================== EGZOZ TEST ====================
+egzoz|Egzozdan su damlıyor normal mi
+egzoz|Egzoz ucu kararmış ne anlama gelir
+egzoz|Araç gürültülü çalışıyor egzoz mu
+egzoz|Katalizör çalınmasını nasıl engellerim
+egzoz|DPF temizliği ne kadar sürer
+egzoz|AdBlue uyarısı söndürülmedi
+egzoz|Egzoz manifoldu çatlaksa ne olur
+egzoz|Emisyon değerleri yüksek kaydedildi
+egzoz|Egzoz lastiği düşmüş tehlikeli mi
+egzoz|Egzoz borusu delik yapar mı ses
+egzoz|Spor egzoz sesi yasal mı
+egzoz|Egzoz geri basıncı nedir
+egzoz|Lambda sensörü kaç tane olmalı
+egzoz|EGR tıkalı nasıl anlaşılır
+egzoz|Egzoz gazı kabine sızıyor olabilir mi
+egzoz|Egzoz modifikasyonu muayenede sorun olur mu
+egzoz|Downpipe değişimi performans artırır mı
+egzoz|Egzoz susturucu içi boşaltmak yasal mı
+egzoz|Katalitik dönüştürücü verimlilik kaybı
+egzoz|Egzoz paslanması normal mi
+
+# ==================== BAKIM TEST ====================
+bakim|Araba bakımı yaptırmadım 2 yıldır
+bakim|Yağ değişimi için kaç km beklemeliyim
+bakim|Triger kayışı kontrolü nasıl yapılır
+bakim|Fren hidroliği değişim periyodu
+bakim|Buji temizliği mi değişim mi
+bakim|İlk bakımda neler kontrol edilir
+bakim|Muadil yedek parça mı orijinal mi
+bakim|Garantili araç başka servise götürülür mü
+bakim|Araç ekspertizi nasıl yapılır
+bakim|Muayeneye hazırlık kontrol listesi
+bakim|Mevsimsel bakım önerileri nelerdir
+bakim|Akü bakımı nasıl yapılır
+bakim|Kuyruk yağı ne zaman değişmeli
+bakim|Cam suyu oranı nasıl ayarlanır
+bakim|Kaporta boyası soyuluyor bakım önerisi
+bakim|Motor temizliği yaptırmalı mıyım
+bakim|Jant temizliği nasıl yapılır
+bakim|İç döşeme bakımı ürün tavsiyesi
+bakim|Araç saklamadan önce ne yapılmalı
+bakim|Uzun yola çıkmadan önce kontroller
+
+# ==================== SELAMLAMA TEST ====================
+selamlama|Merhaba yardımcı olabilir misin
+selamlama|Selamlar bilgi almak istiyorum
+selamlama|Günaydın bir sorum olacaktı
+selamlama|Hey selam
+selamlama|Teşekkürler çok yardımcı oldun
+selamlama|Harika bilgiler sağol
+selamlama|Peki anladım teşekkürler
+selamlama|Bu kadar yeter görüşürüz
+selamlama|Bay bay
+selamlama|Sen ne tür sorulara cevap verirsin
+selamlama|Araba konusunda yardım alabilir miyim
+selamlama|Merhaba ben ahmet
+selamlama|Bir dakika bekle
+selamlama|Tamam devam et
+selamlama|Evet öyle
+selamlama|Hayır tam değil
+selamlama|Biraz daha açıklar mısın
+selamlama|Tekrar merhaba
+selamlama|İyi çalışmalar dilerim
+selamlama|Görüşmek üzere
+
+# ==================== KAPSAM DIŞI TEST ====================
+kapsam_disi|Bugün hava nasıl
+kapsam_disi|En sevdiğin renk ne
+kapsam_disi|Tavuk sote tarifi ver
+kapsam_disi|Python ile liste nasıl oluşturulur
+kapsam_disi|Baş ağrısına ne iyi gelir
+kapsam_disi|Hangi ülkeyi ziyaret etmeliyim
+kapsam_disi|Matematik ödevime yardım et
+kapsam_disi|Film önerisi yapar mısın
+kapsam_disi|Futbol maçı skorları
+kapsam_disi|Kripto para yatırımı yapmalı mıyım
+kapsam_disi|Dolar kuru ne olur sence
+kapsam_disi|Diyet listesi oluşturur musun
+kapsam_disi|İngilizce kelime öğret
+kapsam_disi|Şiir yazar mısın
+kapsam_disi|Köpek maması önerisi
+kapsam_disi|Ev dekorasyon fikirleri
+kapsam_disi|Oyun bilgisayarı tavsiyesi
+kapsam_disi|Telefon fiyatları karşılaştır
+kapsam_disi|Aşk şarkısı sözleri
+kapsam_disi|Tatil için nereye gideyim

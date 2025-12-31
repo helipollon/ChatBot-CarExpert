@@ -6,8 +6,10 @@ Car expert ChatBot with LangChain integration.
 import os
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from typing import List, Dict
+from typing import List, Dict, Tuple
+from intent_classifier import IntentClassifier
 
 # Load environment variables
 load_dotenv()
@@ -83,30 +85,61 @@ If user asks about blocked topics (health, food, code, politics, etc.), respond:
 "Üzgünüm, ben sadece araba ve araç sorunları konusunda uzman bir asistanım. Bu konuda yardımcı olamıyorum. Arabanızla ilgili bir sorunuz varsa memnuniyetle yardımcı olurum! 🚗"
 """
 
-    def __init__(self):
+    def __init__(self, model_name: str = None):
         # Get API key from environment variable
         self.api_key = os.getenv("GEMINI_API_KEY")
         
-        if not self.api_key:
-            raise ValueError(
-                "GEMINI_API_KEY bulunamadı! Lütfen .env dosyası oluşturup "
-                "GEMINI_API_KEY=your_api_key_here şeklinde ekleyin. "
-                ".env.example dosyasını örnek olarak kullanabilirsiniz."
-            )
+        
+        # API Keys
+        self.api_key = os.getenv("GEMINI_API_KEY")
+        # OpenAI key is checked during initialization if needed
+
         
         self.chat_history: List[Dict[str, str]] = []
         self.messages: List = []
+        # Allow choosing model; fall back to default if not provided
+        self.model_name = model_name or "gemini-2.5-flash"
+        
+        # Intent Classifier başlat
+        try:
+            self.intent_classifier = IntentClassifier()
+        except Exception as e:
+            print(f"Intent classifier yüklenemedi: {e}")
+            self.intent_classifier = None
+        
+        self.last_detected_intent = None
+        self.last_intent_score = 0.0
+        
         self.initialize_llm()
     
     def initialize_llm(self):
         """Initialize LangChain with Gemini"""
         try:
-            # LangChain Gemini LLM
-            self.llm = ChatGoogleGenerativeAI(
-                model="gemini-2.5-flash",
-                google_api_key=self.api_key,
-                temperature=0.7
-            )
+            # Check which model is selected
+            if self.model_name.startswith("gpt"):
+                 # OpenAI Model
+                openai_api_key = os.getenv("OPENAI_API_KEY")
+                if not openai_api_key:
+                    raise ValueError("OPENAI_API_KEY bulunamadı! Lütfen .env dosyasını kontrol edin.")
+                
+                self.llm = ChatOpenAI(
+                    model=self.model_name,
+                    openai_api_key=openai_api_key,
+                    temperature=0.7
+                )
+            else:
+                # Gemini Model
+                if not self.api_key:
+                    raise ValueError(
+                        "GEMINI_API_KEY bulunamadı! Lütfen .env dosyası oluşturup "
+                        "GEMINI_API_KEY=your_api_key_here şeklinde ekleyin."
+                    )
+                
+                self.llm = ChatGoogleGenerativeAI(
+                    model=self.model_name,
+                    google_api_key=self.api_key,
+                    temperature=0.7
+                )
             
             # Add system message
             self.messages = [
@@ -117,6 +150,13 @@ If user asks about blocked topics (health, food, code, politics, etc.), respond:
         except Exception as e:
             print(f"LLM initialization error: {e}")
             return False
+
+    def set_model(self, model_name: str) -> bool:
+        """Change model and re-initialize the LLM."""
+        self.model_name = model_name
+        # reset messages to keep system prompt intact
+        self.messages = [SystemMessage(content=self.SYSTEM_PROMPT)]
+        return bool(self.initialize_llm())
     
     def is_blocked_topic(self, message: str) -> bool:
         """Check if message contains blocked topics"""
@@ -142,12 +182,25 @@ If user asks about blocked topics (health, food, code, politics, etc.), respond:
         
         return False
     
-    def get_response(self, user_message: str) -> str:
-        """Generate response to user message using LangChain"""
+    def get_response(self, user_message: str) -> Tuple[str, str, float]:
+        """Generate response to user message using LangChain
         
-        # Check if blocked topic (but not a greeting)
-        if self.is_blocked_topic(user_message) and not self.is_greeting(user_message):
-            return """🚗 Üzgünüm, ben sadece araba ve araç sorunları konusunda uzman bir asistanım.
+        Returns:
+            Tuple[str, str, float]: (yanıt, tespit_edilen_intent, güven_skoru)
+        """
+        
+        # Intent Classification ile kategori tespiti
+        detected_intent = "bilinmiyor"
+        intent_score = 0.0
+        
+        if self.intent_classifier:
+            detected_intent, intent_score, _ = self.intent_classifier.classify(user_message)
+            self.last_detected_intent = detected_intent
+            self.last_intent_score = intent_score
+        
+        # Kapsam dışı intent kontrolü (selamlama hariç)
+        if detected_intent == "kapsam_disi" and intent_score > 0.15:
+            return ("""🚗 Üzgünüm, ben sadece araba ve araç sorunları konusunda uzman bir asistanım.
 
 Bu konuda size yardımcı olamıyorum. Arabanızla ilgili bir sorunuz varsa memnuniyetle yardımcı olurum!
 
@@ -156,7 +209,7 @@ Bu konuda size yardımcı olamıyorum. Arabanızla ilgili bir sorunuz varsa memn
 - Fren pedalı sertleşti, nedeni ne olabilir?
 - Araç ısınıyor ama kalorifer çalışmıyor
 - Vites geçerken ses geliyor
-- Akü ne sıklıkla değiştirilmeli?"""
+- Akü ne sıklıkla değiştirilmeli?""", detected_intent, intent_score)
         
         try:
             # Add user message to history
@@ -178,10 +231,16 @@ Bu konuda size yardımcı olamıyorum. Arabanızla ilgili bir sorunuz varsa memn
                 "content": response.content
             })
             
-            return response.content
+            return response.content, detected_intent, intent_score
             
         except Exception as e:
-            return f"⚠️ Yanıt üretilirken bir hata oluştu: {str(e)}"
+            return f"⚠️ Yanıt üretilirken bir hata oluştu: {str(e)}", detected_intent, intent_score
+    
+    def get_intent_description(self, intent: str) -> str:
+        """Intent için açıklama döndürür"""
+        if self.intent_classifier:
+            return self.intent_classifier.get_intent_description(intent)
+        return "❓ Bilinmeyen"
     
     def clear_history(self):
         """Clear chat history"""

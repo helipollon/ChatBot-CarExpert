@@ -27,6 +27,12 @@ CATEGORY_QUESTIONS = {
     "bakim": "Araba bakımı için en önemli ipuçları ve yapılması gerekenler nelerdir?"
 }
 
+# Model Seçenekleri
+MODEL_MAP = {
+    "Gemini": "gemini-2.5-flash",
+    "ChatGPT": "gpt-4o"
+}
+
 # Özel CSS stilleri
 st.markdown("""
 <style>
@@ -256,11 +262,17 @@ def initialize_session_state():
     if 'messages' not in st.session_state:
         st.session_state.messages = []
     
+    if 'model_name' not in st.session_state:
+        st.session_state.model_name = "Gemini"  # Görünen isim
+    
+    # Gerçek model model ID'si
+    current_model_id = MODEL_MAP[st.session_state.model_name]
+
     if 'chatbot' not in st.session_state:
         try:
-            st.session_state.chatbot = CarExpertChatBot()
+            st.session_state.chatbot = CarExpertChatBot(model_name=current_model_id)
         except Exception as e:
-            st.error(f"Gemini başlatılamadı: {e}")
+            st.error(f"Chatbot başlatılamadı: {e}")
             st.session_state.chatbot = None
     
     if 'show_welcome' not in st.session_state:
@@ -389,7 +401,40 @@ def render_sidebar():
             """, unsafe_allow_html=True)
         
         st.markdown("---")
+
+        # Model seçimi
+        st.markdown('<div class="sidebar-title">🧠 Model Seçimi</div>', unsafe_allow_html=True)
         
+        model_options = list(MODEL_MAP.keys())
+        try:
+            index = model_options.index(st.session_state.model_name)
+        except ValueError:
+            index = 0
+
+        # Kullanıcı görünen ismi seçer
+        selected_model_name = st.selectbox(
+            "Model Seçin", 
+            model_options, 
+            index=index, 
+            key="model_selector", 
+            help="Kullanılacak Yapay Zeka modelini seçin"
+        )
+        
+        # Seçim değiştiyse güncelle
+        if selected_model_name != st.session_state.model_name:
+            st.session_state.model_name = selected_model_name
+            new_model_id = MODEL_MAP[selected_model_name]
+            
+            if st.session_state.get('chatbot'):
+                try:
+                    success = st.session_state.chatbot.set_model(new_model_id)
+                    if success:
+                        st.success(f"Model değiştirildi: {selected_model_name}")
+                    else:
+                        st.error("Model değiştirilemedi.")
+                except Exception as e:
+                    st.error(f"Model yüklenirken hata: {e}")
+
         # Doküman Yönetimi
         st.markdown('<div class="sidebar-title">📄 Dokümanlar</div>', unsafe_allow_html=True)
         
@@ -437,7 +482,7 @@ def render_sidebar():
                 st.rerun()
 
 
-def render_chat_message(role: str, content: str):
+def render_chat_message(role: str, content: str, intent: str = None, intent_score: float = None):
     """Chat mesajını render eder"""
     content_html = content.replace('\n', '<br>').replace('**', '<strong>').replace('*', '<em>')
     
@@ -449,10 +494,17 @@ def render_chat_message(role: str, content: str):
         </div>
         """, unsafe_allow_html=True)
     else:
+        # Intent badge oluştur
+        intent_badge = ""
+        if intent and intent_score and st.session_state.get('chatbot'):
+            intent_desc = st.session_state.chatbot.get_intent_description(intent)
+            intent_badge = f'<div style="font-size: 0.75rem; color: #888; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);">📌 {intent_desc} ({intent_score:.0%})</div>'
+        
         st.markdown(f"""
         <div class="bot-message">
             <div class="bot-label">🚗 Araba Uzmanı</div>
             {content_html}
+            {intent_badge}
         </div>
         """, unsafe_allow_html=True)
 
@@ -561,7 +613,12 @@ def main():
     # Chat Section
     if st.session_state.messages:
         for message in st.session_state.messages:
-            render_chat_message(message["role"], message["content"])
+            render_chat_message(
+                message["role"], 
+                message["content"],
+                message.get("intent"),
+                message.get("intent_score")
+            )
         
         # Son mesaj user ise yanıt al
         if st.session_state.messages[-1]["role"] == "user":
@@ -573,11 +630,17 @@ def main():
                 st.stop()
             
             with st.spinner("🔍 Düşünüyorum..."):
-                response = st.session_state.chatbot.get_response(user_msg)
+                response, detected_intent, intent_score = st.session_state.chatbot.get_response(user_msg)
+            
+            # Intent badge oluştur
+            intent_desc = st.session_state.chatbot.get_intent_description(detected_intent)
+            intent_badge = f"📌 Kategori: {intent_desc} (Güven: {intent_score:.0%})"
             
             st.session_state.messages.append({
                 "role": "assistant",
-                "content": response
+                "content": response,
+                "intent": detected_intent,
+                "intent_score": intent_score
             })
             
             # Sohbeti kaydet

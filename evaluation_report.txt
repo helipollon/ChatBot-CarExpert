@@ -1,0 +1,109 @@
+
+======================================================================
+📊 INTENT CLASSIFICATION DEĞERLENDİRME RAPORU
+======================================================================
+
+📈 Genel Metrikler:
+   • Accuracy: 61.82%
+   • Toplam Örnek: 220
+
+📊 Macro Average:
+   • Precision: 78.16%
+   • Recall: 61.82%
+   • F1 Score: 65.08%
+
+----------------------------------------------------------------------
+Kategori                Precision       Recall     F1 Score     Destek
+----------------------------------------------------------------------
+bakim                     42.86%      60.00%      50.00%         20
+egzoz                    100.00%      60.00%      75.00%         20
+elektrik                  71.43%      50.00%      58.82%         20
+fren                      92.86%      65.00%      76.47%         20
+kapsam_disi               90.00%      45.00%      60.00%         20
+klima                    100.00%      55.00%      70.97%         20
+lastik                    93.75%      75.00%      83.33%         20
+motor                     61.54%      40.00%      48.48%         20
+sanziman                  88.24%      75.00%      81.08%         20
+selamlama                 27.40%     100.00%      43.01%         20
+suspansiyon               91.67%      55.00%      68.75%         20
+----------------------------------------------------------------------
+
+📋 Confusion Matrix (satırlar: gerçek, sütunlar: tahmin):
+
+                    bakim     egzoz  elektrik      fren  kapsam_d     klima    lastik     motor  sanziman  selamlam  suspansi
+bakim                  12         ·         1         1         1         ·         ·         2         ·         3         ·
+egzoz                   1        12         ·         ·         ·         ·         ·         ·         ·         7         ·
+elektrik                4         ·        10         ·         ·         ·         ·         ·         ·         6         ·
+fren                    2         ·         1        13         ·         ·         ·         ·         ·         4         ·
+kapsam_disi             ·         ·         ·         ·         9         ·         ·         ·         ·        11         ·
+klima                   1         ·         1         ·         ·        11         ·         1         ·         5         1
+lastik                  ·         ·         ·         ·         ·         ·        15         ·         ·         5         ·
+motor                   4         ·         1         ·         ·         ·         ·         8         1         6         ·
+sanziman                2         ·         ·         ·         ·         ·         ·         ·        15         3         ·
+selamlama               ·         ·         ·         ·         ·         ·         ·         ·         ·        20         ·
+suspansiyon             2         ·         ·         ·         ·         ·         1         2         1         3        11
+
+======================================================================
+
+📛 YANLIŞ SINIFLANDIRILAN ÖRNEKLER:
+----------------------------------------------------------------------
+Metin: Aracım marş basmıyor sabahları...
+   Gerçek: motor → Tahmin: elektrik
+
+Metin: Araç seyir halindeyken aniden durdu...
+   Gerçek: motor → Tahmin: bakim
+
+Metin: Conta yağ sızıntısı yapıyor sanırım...
+   Gerçek: motor → Tahmin: sanziman
+
+Metin: Turbo neden ıslık sesi çıkarıyor...
+   Gerçek: motor → Tahmin: selamlama
+
+Metin: Araç park halindeyken bile titriyor...
+   Gerçek: motor → Tahmin: bakim
+
+Metin: Kış aylarında araç zor çalışıyor...
+   Gerçek: motor → Tahmin: bakim
+
+Metin: Dizel motorlarda ısıtma bujisi ne işe yarar...
+   Gerçek: motor → Tahmin: selamlama
+
+Metin: Araç ani güç kaybı yaşıyor...
+   Gerçek: motor → Tahmin: bakim
+
+Metin: Silindir kapağı çatlamış olabilir mi...
+   Gerçek: motor → Tahmin: selamlama
+
+Metin: Radyatör fanı sürekli çalışıyor...
+   Gerçek: motor → Tahmin: selamlama
+
+Metin: Eksik silindir çalışıyor gibi...
+   Gerçek: motor → Tahmin: selamlama
+
+Metin: Krank sensörü bozulunca ne olur...
+   Gerçek: motor → Tahmin: selamlama
+
+Metin: Frene basınca araç titriyor...
+   Gerçek: fren → Tahmin: bakim
+
+Metin: Araç durmakta zorlanıyor...
+   Gerçek: fren → Tahmin: bakim
+
+Metin: ABS uyarısı yanıp söndü...
+   Gerçek: fren → Tahmin: selamlama
+
+Metin: Arka tekerlekler kitlendi neden...
+   Gerçek: fren → Tahmin: selamlama
+
+Metin: Park freni otomatik çalışmıyor...
+   Gerçek: fren → Tahmin: elektrik
+
+Metin: İniş yaparken frenler ısınıyor...
+   Gerçek: fren → Tahmin: selamlama
+
+Metin: Otomatik park freni nasıl iptal edilir...
+   Gerçek: fren → Tahmin: selamlama
+
+Metin: Araç anahtarı döndürünce hiç ses yok...
+   Gerçek: elektrik → Tahmin: bakim
+

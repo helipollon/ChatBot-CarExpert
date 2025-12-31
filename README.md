@@ -1,11 +1,13 @@
 # 🚗 Araba Uzmanı ChatBot
 
-Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit ile geliştirilmiş, LangChain ve Google Gemini API kullanılarak oluşturulmuş modern bir ChatBot uygulaması.
+Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit ile geliştirilmiş, LangChain ile Google Gemini ve OpenAI ChatGPT API entegrasyonu sağlanmış, Intent Classification ile gelişmiş bir ChatBot uygulaması.
 
 ## ✨ Özellikler
 
 ### 🎯 Ana Özellikler
 - **Araba Sorunları Uzmanı**: Sadece araba ve araç sorunları hakkında uzmanlaşmış AI asistanı
+- **Çoklu Model Desteği**: Gemini ve ChatGPT arasında seçim yapabilme
+- **Intent Classification**: TF-IDF tabanlı otomatik kategori tespiti (11 kategori)
 - **Kategori Bazlı Sorular**: 6 farklı kategori ile hızlı erişim
   - 🔧 Motor Sorunları
   - 🛞 Fren Sistemleri
@@ -14,23 +16,38 @@ Araba ve araç sorunları konusunda uzman bir yapay zeka asistanı. Streamlit il
   - ⚙️ Şanzıman
   - 🔍 Bakım İpuçları
 - **Sohbet Geçmişi**: Tüm sohbetlerinizi kaydedin ve istediğiniz zaman geri dönün
+- **Doküman Desteği**: PDF, DOCX, XLSX dosyalarından bilgi çekme
 - **Modern UI**: Koyu tema ve gradient renklerle tasarlanmış kullanıcı dostu arayüz
-- **Akıllı Filtreleme**: Araba dışı konularda (sağlık, yemek, programlama vb.) yanıt vermez
+
+### 🧠 Intent Classification Sistemi
+- **987 eğitim örneği** ile eğitilmiş TF-IDF tabanlı sınıflandırıcı
+- **11 kategori**: motor, fren, elektrik, klima, şanzıman, lastik, süspansiyon, egzoz, bakım, selamlama, kapsam_dışı
+- **Otomatik kategori tespiti**: Her kullanıcı sorusu için intent ve güven skoru hesaplanır
+- **Değerlendirme metrikleri**: Precision, Recall, F1 Score
+
+### 📊 Model Performansı
+
+| Metrik | Değer |
+|--------|-------|
+| Accuracy | 61.82% |
+| Macro Precision | 78.16% |
+| Macro Recall | 61.82% |
+| Macro F1 Score | 65.08% |
 
 ### 🔒 Güvenlik
-- API anahtarı `.env` dosyasında güvenli şekilde saklanır
+- API anahtarları `.env` dosyasında güvenli şekilde saklanır
 - Hassas bilgiler git'e commit edilmez
 
 ## 📋 Gereksinimler
 
 - Python 3.8+
 - Google Gemini API anahtarı
+- OpenAI API anahtarı (opsiyonel, ChatGPT kullanmak için)
 
 ## 🚀 Kurulum
 
 ### 1. Projeyi Klonlayın veya İndirin
 
-Proje klasörüne gidin:
 ```bash
 cd "proje-klasörü-yolu"
 ```
@@ -41,22 +58,23 @@ cd "proje-klasörü-yolu"
 pip3 install -r requirements.txt
 ```
 
-### 3. API Anahtarını Ayarlayın
+### 3. API Anahtarlarını Ayarlayın
 
-1. `.env` dosyası oluşturun:
+`.env` dosyası oluşturun:
 ```bash
-touch .env
+GEMINI_API_KEY=your_gemini_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-2. `.env` dosyasına API anahtarınızı ekleyin:
-```
-GEMINI_API_KEY=your_api_key_here
-```
+**API Anahtarları Nasıl Alınır?**
 
-**API Anahtarı Nasıl Alınır?**
+**Gemini:**
 1. [Google AI Studio](https://aistudio.google.com/app/apikey) adresine gidin
 2. "Create API Key" butonuna tıklayın
-3. Anahtarı kopyalayıp `.env` dosyasına yapıştırın
+
+**OpenAI:**
+1. [OpenAI Platform](https://platform.openai.com/api-keys) adresine gidin
+2. "Create new secret key" butonuna tıklayın
 
 ### 4. Uygulamayı Başlatın
 
@@ -66,203 +84,136 @@ streamlit run app.py
 
 Tarayıcınızda otomatik olarak `http://localhost:8501` adresinde açılacaktır.
 
-## 📖 Kullanım
-
-### İlk Kullanım
-
-1. Uygulamayı başlattıktan sonra ana sayfada hoş geldin mesajı ve kategori butonları görünecektir
-2. İstediğiniz kategoriye tıklayarak o konuyla ilgili sık sorulan soruları görebilirsiniz
-3. Veya doğrudan chat input alanına sorunuzu yazabilirsiniz
-
-## 📸 Ekran Görüntüleri
-### 1. Ana Sayfa ve Kategori Butonları
-![Ekran görüntüsü_26-12-2025_155941_localhost](https://github.com/user-attachments/assets/e359760b-e81f-4d68-b779-6da93ee363ae)
-
-
-
-Ana sayfa açıldığında kullanıcıları karşılayan hoş geldin mesajı ve 6 farklı kategori butonu görüntülenir:
-- **Hoş Geldiniz Kartı**: Kullanıcıya chatbot'un amacını açıklayan bilgilendirici mesaj
-- **Kategori Butonları**: 
-  - 🔧 Motor Sorunları
-  - 🛞 Fren Sistemleri
-  - ⚡ Elektrik & Akü
-  - 🌡️ Klima & Isıtma
-  - ⚙️ Şanzıman
-  - 🔍 Bakım İpuçları
-- **Uyarı Notu**: Chatbot'un sadece araba sorunları hakkında uzman olduğunu belirten sarı uyarı kutusu
-- **Chat Input**: Alt kısımda yer alan mesaj gönderme alanı
-
-### 2. Sidebar - Sohbet Geçmişi ve Doküman Yönetimi
-![Ekran görüntüsü_26-12-2025_16614_localhost](https://github.com/user-attachments/assets/c625f79a-a4af-4733-9d42-1441428358d4)
-
-
-Sol tarafta açılır kapanır sidebar menüsü şu özellikleri içerir:
-
-**Sohbet Geçmişi Bölümü:**
-- ➕ **Yeni Sohbet Butonu**: Yeni bir sohbet başlatmak için
-- **Sohbet Listesi**: Tarih ve saat bilgisiyle birlikte önceki sohbetler
-- 🗑️ **Silme Butonu**: Her sohbetin yanında yer alan silme ikonu
-
-**Dokümanlar Bölümü:**
-- **Doküman Yükleme Alanı**: Drag & drop veya dosya seçme ile PDF, DOCX, XLSX dosyaları yüklenebilir
-- **Dokümanları Yenile Butonu**: Yeni eklenen dosyaları yüklemek için
-- **Tüm Geçmişi Temizle Butonu**: Tüm sohbet geçmişini silmek için
-
-### 3. Sohbet Örneği - Kullanıcı Sorusu ve Yanıt
-
-![Ekran görüntüsü_26-12-2025_16433_localhost](https://github.com/user-attachments/assets/2de0219d-da0a-4c6c-bd07-a9e620f34761)
-
-Chatbot'un çalışma örneği:
-
-**Kullanıcı Sorusu:**
-- Sağ tarafta mor-mavi renkli chat balonu içinde kullanıcının sorusu görüntülenir
-- Örnek: "Arabalarda en sık karşılaşılan şanzıman ve vites sorunları nelerdir ve çözümleri nasıldır?"
-
-**Chatbot Yanıtı:**
-- Sol tarafta gri chat balonu içinde detaylı ve yapılandırılmış yanıt
-- **Numaralı Liste**: Her sorun için:
-  - Belirti (Symptom)
-  - Olası Nedenler (Possible Causes)
-  - Çözüm (Solution)
-- **Genel Öneriler**: Düzenli bakım, erken teşhis ve profesyonel yardım önerileri
-- **Kapanış Mesajı**: Yardımcı ve samimi bir kapanış
-
-**Ek Özellikler:**
-- **Düşünüyorum Göstergesi**: Yanıt üretilirken animasyonlu "Düşünüyorum..." göstergesi
-- **Sohbeti Temizle Butonu**: Sohbeti sıfırlamak için kırmızı buton
-- **Kategori Butonları**: Sohbet sırasında hala erişilebilir (kullanıcı mesajı gönderilene kadar)
-
-### 4. Arayüz Özellikleri
-![Ekran görüntüsü_26-12-2025_16128_localhost](https://github.com/user-attachments/assets/5365339a-b39b-4d59-bb13-febfdd34a60e)
-
-**Tasarım:**
-- **Koyu Tema**: Mor-mavi gradient arka plan ile modern görünüm
-- **Renk Paleti**: Kırmızı-turuncu gradient butonlar, beyaz metin, sarı uyarı kutuları
-- **Responsive Layout**: Farklı ekran boyutlarına uyumlu tasarım
-
-**Kullanıcı Deneyimi:**
-- **Akıcı Animasyonlar**: Mesaj gönderilirken ve yanıt alınırken yumuşak geçişler
-- **Görsel Geri Bildirim**: Her işlem için görsel geri bildirim (butonlar, animasyonlar)
-- **Temiz Arayüz**: Gereksiz öğeler olmadan odaklanmış tasarım
-
-### Sohbet Geçmişi
-
-- **Sol sidebar'ı açın**: Sayfanın sol üst köşesindeki `>` ikonuna tıklayın
-- **Yeni sohbet başlatın**: "➕ Yeni Sohbet" butonuna tıklayın
-- **Eski sohbetleri görüntüleyin**: Listeden istediğiniz sohbeti seçin
-- **Sohbet silme**: Her sohbetin yanındaki 🗑️ butonuna tıklayın
-
-### Örnek Kullanım Videosu
-
-
-https://github.com/user-attachments/assets/1e8ebac7-f9b7-49be-b9e3-1c2aac5c50cb
-
-
-
-### Örnek Sorular
-
-- "Arabamın motoru çalışmıyor, ne yapmalıyım?"
-- "Fren pedalı sertleşti, nedeni ne olabilir?"
-- "Araç ısınıyor ama kalorifer çalışmıyor"
-- "Vites geçerken ses geliyor"
-- "Akü ne sıklıkla değiştirilmeli?"
-
 ## 🏗️ Proje Yapısı
 
 ```
 ChatBot Odev/
-├── app.py                 # Ana Streamlit uygulaması
-├── gemini_client.py      # LangChain + Gemini API entegrasyonu
-├── requirements.txt       # Python bağımlılıkları
-├── .env                  # API anahtarı (oluşturulmalı, git'e commit edilmez)
-├── .gitignore            # Git ignore dosyası
-└── README.md             # Bu dosya
+├── app.py                    # Ana Streamlit uygulaması
+├── gemini_client.py          # LangChain + Gemini/OpenAI API entegrasyonu
+├── intent_classifier.py      # TF-IDF tabanlı Intent Classification modülü
+├── evaluate_intent.py        # Değerlendirme metrikleri (Precision, Recall, F1)
+├── document_processor.py     # Doküman işleme modülü
+├── intents.txt               # Eğitim verisi (987 örnek, 11 kategori)
+├── test_intents.txt          # Test verisi (220 örnek, bağımsız)
+├── evaluation_report.txt     # Değerlendirme raporu
+├── requirements.txt          # Python bağımlılıkları
+├── documents/                # Doküman klasörü (PDF, DOCX, XLSX)
+├── .env                      # API anahtarları (oluşturulmalı)
+├── .env.example              # API anahtarları örneği
+├── .gitignore                # Git ignore dosyası
+└── README.md                 # Bu dosya
 ```
 
 ## 🔧 Teknik Detaylar
 
 ### Kullanılan Teknolojiler
 
-- **Streamlit**: Web arayüzü framework'ü
-- **LangChain**: LLM entegrasyonu ve sohbet yönetimi
-- **Google Gemini API**: AI modeli (gemini-2.5-flash)
-- **python-dotenv**: Ortam değişkenleri yönetimi
+| Teknoloji | Açıklama |
+|-----------|----------|
+| **Streamlit** | Web arayüzü framework'ü |
+| **LangChain** | LLM entegrasyonu ve sohbet yönetimi |
+| **Google Gemini API** | AI modeli (gemini-2.5-flash) |
+| **OpenAI API** | AI modeli (gpt-4o) |
+| **TF-IDF** | Intent Classification için vektörizasyon |
+| **python-dotenv** | Ortam değişkenleri yönetimi |
 
-### Mimari
+### Intent Classification Mimarisi
 
-- **Frontend**: Streamlit ile responsive web arayüzü
-- **Backend**: LangChain ile AI model entegrasyonu
-- **State Management**: Streamlit session state ile sohbet geçmişi yönetimi
-- **API**: Google Gemini API ile doğal dil işleme
+```
+Kullanıcı Mesajı
+      ↓
+Tokenization (kelime ayırma)
+      ↓
+TF-IDF Vektörizasyon
+      ↓
+Cosine Similarity (her kategori ile)
+      ↓
+En yüksek benzerlik → Tahmin edilen Intent
+```
 
-### Özellikler
+### Değerlendirme Çalıştırma
 
-- **Kategori Filtreleme**: Sadece araba sorunları hakkında yanıt verir
-- **Selamlaşma Desteği**: "Merhaba", "Nasılsın" gibi selamlamalara yanıt verir
-- **Yasaklı Konular**: Sağlık, yemek, programlama, siyaset gibi konularda yanıt vermez
-- **Sohbet Geçmişi**: Tüm sohbetler otomatik kaydedilir ve geri yüklenebilir
-- **Gerçek Zamanlı Yanıt**: Gemini API ile anlık ve akıllı yanıtlar
+```bash
+python3 evaluate_intent.py
+```
+
+Bu komut:
+- Test verisini yükler (`test_intents.txt`)
+- Her örnek için intent tahmini yapar
+- Precision, Recall, F1 Score hesaplar
+- Confusion matrix oluşturur
+- Raporu `evaluation_report.txt` dosyasına kaydeder
+
+## 📸 Kullanım
+
+### Model Seçimi
+Sidebar'da "Model Seçimi" bölümünden:
+- **Gemini**: Google'ın Gemini 2.5 Flash modeli
+- **ChatGPT**: OpenAI'ın GPT-4o modeli
+
+### Intent Görüntüleme
+Her bot yanıtının altında tespit edilen kategori ve güven skoru görüntülenir:
+```
+📌 🔧 Motor Sorunları (75%)
+```
+
+### Örnek Sorular
+
+- "Arabamın motoru çalışmıyor, ne yapmalıyım?"
+- "Fren pedalı sertleşti, nedeni ne olabilir?"
+- "Klima soğutmuyor ne yapmalıyım?"
+- "Vites geçerken ses geliyor"
+- "Akü ne sıklıkla değiştirilmeli?"
 
 ## ⚠️ Önemli Notlar
 
 1. **API Anahtarı Güvenliği**: `.env` dosyasını asla git'e commit etmeyin
-2. **API Limitleri**: Google Gemini API'nin kullanım limitlerine dikkat edin
+2. **API Limitleri**: API kullanım limitlerine dikkat edin
 3. **Sadece Araba Sorunları**: ChatBot sadece araba ve araç sorunları hakkında uzmandır
 4. **Profesyonel Tavsiye**: Ciddi araç sorunlarında mutlaka profesyonel servise danışın
 
 ## 🐛 Sorun Giderme
 
-### API Anahtarı Bulunamadı Hatası
+### API Anahtarı Bulunamadı
 
 ```
 ValueError: GEMINI_API_KEY bulunamadı!
 ```
 
-**Çözüm**: `.env` dosyasının proje kök dizininde olduğundan ve doğru formatta olduğundan emin olun:
-```
-GEMINI_API_KEY=your_api_key_here
-```
+**Çözüm**: `.env` dosyasını kontrol edin.
 
-### Modül Bulunamadı Hatası
+### OpenAI Kota Hatası
 
 ```
-ModuleNotFoundError: No module named 'langchain'
+Error code: 429 - insufficient_quota
 ```
 
-**Çözüm**: Tüm bağımlılıkları yükleyin:
+**Çözüm**: OpenAI hesabınıza kredi ekleyin veya Gemini modelini kullanın.
+
+### Modül Bulunamadı
+
 ```bash
 pip3 install -r requirements.txt
 ```
 
-### Port Zaten Kullanımda
-
-```
-Port 8501 is already in use
-```
-
-**Çözüm**: Farklı bir port kullanın:
-```bash
-streamlit run app.py --server.port 8502
-```
-
-## 📝 Lisans
-
-Bu proje eğitim amaçlı geliştirilmiştir.
-
-## 👨‍💻 Geliştirici
-
-Araba sorunları konusunda uzman AI asistanı - Streamlit + LangChain + Gemini API
-
 ## 🔄 Güncellemeler
+
+- **v2.0**: Gelişmiş Özellikler
+  - ✅ Intent Classification sistemi (TF-IDF)
+  - ✅ 987 eğitim örneği, 11 kategori
+  - ✅ Değerlendirme metrikleri (Precision, Recall, F1)
+  - ✅ Ayrı test seti (220 örnek)
+  - ✅ ChatGPT (OpenAI) desteği
+  - ✅ Model seçimi (Gemini/ChatGPT)
+  - ✅ Intent badge görüntüleme
 
 - **v1.0**: İlk sürüm
   - ✅ Temel ChatBot özellikleri
   - ✅ Kategori bazlı sorular (6 kategori)
-  - ✅ Sohbet geçmişi yönetimi (sidebar)
-  - ✅ Modern UI tasarımı (koyu tema)
+  - ✅ Sohbet geçmişi yönetimi
+  - ✅ Modern UI tasarımı
   - ✅ LangChain entegrasyonu
-  - ✅ API anahtarı güvenliği (.env)
-  - ✅ Akıllı konu filtreleme
+  - ✅ Doküman işleme
 
 ---
 
